@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+
+<body>
+<div id="app">
+    <v-app>
+        <div class="header-img">
+
+        </div>
+        <v-container >
+        <v-row justify="center">
+            <!--  Left column -->
+            <v-col class="py-4 text-center" :xl="4" :lg="4" :md="4" :sm="4" :xs="4">
+                <!--  Self introduction -->
+                <v-row justify="center" style="margin-top: -3em">
+                    <v-avatar size="192" >
+                        <img src="images/avatar2.jpg">
+                    </v-avatar>
+                </v-row>
+                <br><br>
+                <v-row justify="center" >
+                    <h2>Zilin Xu</h2>
+                </v-row>
+                <v-row justify="center" >
+                    <span>Shandong University</span>
+                </v-row>
+                <v-row justify="center" >
+                    <span>zilin.xu@mail.sdu.edu.cn</span>
+                </v-row>
+                <!--  Self introduction end -->
+            </v-col>
+            <!--  Left column end -->
+
+            <!--  Right column -->
+            <v-col class="py-4" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+                <!--  About me -->
+                <v-row justify="left" >
+                    <div class="text-h4 mt-4">About me</div>
+                </v-row>
+                <v-row justify="left" >
+                    <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
+                        <p>
+                            Hello! I‘m Zilin, currently a first-year Master’s student at Shandong University,
+                            supervised by Prof. Lu Wang. I received my Bachelor degree from Shandong University in 2020.
+                        </p>
+
+                    </v-col>
+
+                </v-row>
+                <!--  About me end -->
+
+                <!--  Publications -->
+                <v-row justify="left" >
+                    <div class="text-h4 mt-4">Publications</div>
+                </v-row>
+                <v-row justify="left" v-for="item in publications" >
+                    <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
+                        <v-img width="100%" class="mt-2"
+                               :src="item.teaser">
+                        </v-img>
+                    </v-col>
+                    <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+                        <b>{{item.title}}</b>
+                        <br>
+                        <span v-html="item.authors"></span>
+                        <br>
+                        <i>{{item.publication}}</i>
+                        <br><br>
+                        <p>
+                            {{item.abstract}}
+                        </p>
+                    </v-col>
+                </v-row>
+                <!--  Publications end -->
+            </v-col>
+            <!--  Right column end -->
+        </v-row>
+        </v-container>
+
+
+
+
+        <!--  footer  -->
+        <v-bottom-navigation
+                v-model="value"
+                :background-color="color"
+                dark
+                shift
+        >
+            <v-btn>
+                <span>Game Zone</span>
+
+                <v-icon>mdi-television-play</v-icon>
+            </v-btn>
+
+            <v-btn>
+                <span>Music</span>
+
+                <v-icon>mdi-music-note</v-icon>
+            </v-btn>
+
+            <v-btn>
+                <span>Book</span>
+
+                <v-icon>mdi-book</v-icon>
+            </v-btn>
+
+            <v-btn>
+                <span>Image</span>
+
+                <v-icon>mdi-image</v-icon>
+            </v-btn>
+        </v-bottom-navigation>
+    </v-app>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data: {
+            value: 1,
+            publications:[
+                {
+                    title:'Neural Complex Luminaires: Representation and Rendering',
+                    abstract:'Our neural complex luminaire framework efficiently represents complicated light sources that are extremely costly to evaluate using traditional\n' +
+                        'approaches due to the convoluted paths light takes through their geometry. Our approach easily integrates into standard Monte Carlo rendering systems\n' +
+                        'including those using multiple importance sampling (MIS). Here we compare our results rendered with forward path tracing at 128 samples per pixel (spp) to\n' +
+                        'the reference rendered using bidirectional path tracing (BDPT) at 1024 spp on two scenes with different luminaires. Our method is able to match both the\n' +
+                        'luminaire appearance as well as the high frequency light patterns on the wall. Overall, we can attain similar quality and low-noise results with fewer samples\n' +
+                        'per pixel (resulting in speedups of 15× and nearly 22×, respectively), without requiring the original luminaire geometry at runtime.',
+                    authors:'Junqiu Zhu, Yaoyi Bai, <b>Zilin Xu(Joint first author)</b>, Steve Bako, Edgar Velázquez-Armendáriz, Lu Wang, Pradeep Sen, Miloš Hašan, Ling-Qi Yan',
+                    publication:'ACM Transactions on Graphics (Proceedings of SIGGRAPH 2021)',
+                    teaser:'images/complexluminaires.jpg'
+                },
+                {
+                    title:'Unsupervised Image Reconstruction for Gradient-Domain Volumetric Rendering',
+                    abstract:'Gradient-domain rendering can highly improve the convergence of light transport simulation using the smoothness in image space.' +
+                        ' These methods generate image gradients and solve an image reconstruction problem with rendered image and the gradient images. Recently,' +
+                        ' a previous work proposed a gradient-domain volumetric photon density estimation for homogeneous participating media. However, ' +
+                        'the image reconstruction relies on traditional L1 reconstruction, which leads to obvious artifacts when only a few rendering passes are performed.' +
+                        ' Deep learning based reconstruction methods have been exploited for surface rendering, but they are not suitable for volume density estimation. ' +
+                        'In this paper, we propose an unsupervised neural network for image reconstruction of gradient-domain volumetric photon density estimation, ' +
+                        'more specifically for volumetric photon mapping, using a variant of GradNet with an encoded shift connection and a separated auxiliary feature branch, ' +
+                        'which includes volume based auxiliary features such as transmittance and photon density. Our network smooths the images on global scale and preserves the high ' +
+                        'frequency details on a small scale. We demonstrate that our network produces a higher quality result, compared to previous work.' +
+                        ' Although we only considered volumetric photon mapping, it’s straightforward to extend our method for other forms, like beam radiance estimation.\n',
+                    authors:'<b>Zilin Xu</b>, Qiang Sun , Lu Wang , Yanning Xu , Beibei Wang',
+                    publication:'Computer Graphics Forum (Proceedings of Pacific Graphics 2020)',
+                    teaser:'images/volgrad.jpg'
+                }
+            ],
+
+        },
+        methods:{
+
+        },
+        computed: {
+            color () {
+                switch (this.value) {
+                    case 0: return 'blue-grey'
+                    case 1: return 'teal'
+                    case 2: return 'brown'
+                    case 3: return 'indigo'
+                    default: return 'blue-grey'
+                }
+            },
+        },
+    })
+
+</script>
+<style>
+    .header-img{
+        width: 100%;
+        height: 100%;
+        min-height: 40%;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/header.png);
+        background-repeat:no-repeat;background-size:cover;
+
+    }
+
+</style>
+</html>
