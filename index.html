@@ -49,16 +49,8 @@
                 </v-row>
                 <v-row justify="left" >
                     <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
-                        <p>
-                            Hello! I‘m Zilin, I received my Bachelor degree from Shandong University in 2020.
-                            Currently I'm a first-year Master’s student at Shandong University, supervised
-                            by Prof. <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">Lu Wang</a>.
-                            It is very proud for me that I'm also co-surpervised by Prof. <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>
-                            and Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-qi Yan</a>.
-                        </p>
-
+                        <p v-html="selfIntroduction"></p>
                     </v-col>
-
                 </v-row>
                 <!--  About me end -->
 
@@ -91,7 +83,6 @@
                     <div class="text-h4 mt-4">Other publications</div>
                 </v-row>
                 <v-row justify="left" v-for="item in others" >
-
                     <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
                         <b>{{item.title}}</b>
                         <br>
@@ -153,6 +144,11 @@
         vuetify: new Vuetify(),
         data: {
             value: 1,
+            selfIntroduction:'Hello! I‘m Zilin, I received my Bachelor degree from Shandong University in 2020.\n' +
+                'Currently I\'m a first-year Master’s student at Shandong University, supervised\n' +
+                'by Prof. <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">Lu Wang</a>.\n' +
+                'It is very proud for me that I\'m also co-surpervised by Prof. <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>\n' +
+                'and Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.',
             publications:[
                 {
                     title:'Neural Complex Luminaires: Representation and Rendering',
