@@ -85,6 +85,27 @@
                     </v-col>
                 </v-row>
                 <!--  Publications end -->
+
+                <!--  Others -->
+                <v-row justify="left" >
+                    <div class="text-h4 mt-4">Other publications</div>
+                </v-row>
+                <v-row justify="left" v-for="item in others" >
+
+                    <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
+                        <b>{{item.title}}</b>
+                        <br>
+                        <span v-html="item.authors"></span>
+                        <br>
+                        <i>{{item.publication}}</i>
+                        <br><br>
+                        <p>
+                            {{item.abstract}}
+                        </p>
+                    </v-col>
+                </v-row>
+                <!--  Others end -->
+
             </v-col>
             <!--  Right column end -->
         </v-row>
@@ -149,7 +170,7 @@
                         ' <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">Lu Wang</a>,' +
                         ' <a href="https://web.ece.ucsb.edu/~psen/" target="_blank">Pradeep Sen</a>,' +
                         ' <a href="http://miloshasan.net/" target="_blank">Miloš Hašan</a>,' +
-                        ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-qi Yan</a>',
+                        ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
                     publication:'ACM Transactions on Graphics (Proceedings of SIGGRAPH 2021)',
                     teaser:'images/complexluminaires.jpg'
                 },
@@ -174,6 +195,34 @@
                     teaser:'images/volgrad.jpg'
                 }
             ],
+            others:[
+                {
+                    title:'State-of-the-Art Survey of Photorealistic Rendering Based on Machine Learning',
+                    abstract:'Nowadays, the demand for photo-realistic rendering in the movie, anime, game and other industries is increasing, ' +
+                        'and the highly realistic rendering of 3D scenes usually requires a lot of calculation time and storage to calculate global ' +
+                        'illumination. How to ensure the quality of rendering on the premise of improving drawing speed is still one of the core and' +
+                        ' hot issues in the field of graphics. The data-driven machine learning method has opened up a new idea. In recent years,' +
+                        ' researchers have mapped a variety of highly realistic rendering methods to machine learning problems, thereby greatly reducing' +
+                        ' the computational cost. This article summarizes and analyzes the research progress of highly realistic rendering methods based ' +
+                        'on machine learning in recent years, including:global illumination optimization calculation methods based on machine learning,' +
+                        ' physical material modeling methods based on deep learning, and participatory media drawing method optimization based on deep ' +
+                        'learning, Monte Carlo Denoising method based on machine learning, etc. This article discusses the mapping ideas of various drawing ' +
+                        'methods and machine learning methods in detail, summarizes the construction methods of network models and training data sets,' +
+                        ' and conducts comparative analysis on drawing quality, drawing time, network capabilities and other aspects. ' +
+                        'Finally, this paper proposes possible ideas and future prospects for the combination of machine learning and realistic rendering.',
+                    authors:
+                        'ZHAO Ye-Zi,'+
+                        ' <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">WANG Lu</a>,' +
+                        ' <a href="http://vr.sdu.edu.cn/info/1010/1062.htm">XU Yan-Ning</a>,' +
+                        ' <a href="https://zheng95z.github.io/">ZENG Zheng</a>,' +
+                        ' Ge Liang-Sheng,' +
+                        ' <a href="http://junqiuzhu.com/" target="_blank">ZHU Jun-Qiu</a>,' +
+                        ' <b>Xu Zi-Lin</b>,' +
+                        ' <a href="http://vr.sdu.edu.cn/info/1010/1073.htm" target="_blank">Xiang-Xu Meng</a>',
+
+                    publication:'Journal of Software',
+                }
+            ]
 
         },
         methods:{
