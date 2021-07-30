@@ -1,0 +1,16 @@
+.train{
+    /*display: inline-block;*/
+    padding-bottom: 3em;
+}
+
+.train_imgs{
+    display: block;
+    float: left;
+    max-width: 32%;
+    margin: 0.5rem;
+}
+.train_imgs span{
+    padding-top: 0.2em;
+    text-align: center;
+    display:block;
+}

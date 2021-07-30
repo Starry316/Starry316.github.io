@@ -70,7 +70,11 @@
                         <span v-html="item.authors"></span>
                         <br>
                         <i>{{item.publication}}</i>
-                        <br><br>
+                        <br>
+                        <span class="mr-2" v-for="linksItem in item.links">
+                            <a :href="linksItem.link" target="_blank">{{linksItem.text}}</a>
+                        </span>
+                        <br>
                         <p>
                             {{item.abstract}}
                         </p>
@@ -168,7 +172,11 @@
                         ' <a href="http://miloshasan.net/" target="_blank">Miloš Hašan</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
                     publication:'ACM Transactions on Graphics (Proceedings of SIGGRAPH 2021)',
-                    teaser:'images/complexluminaires.jpg'
+                    teaser:'images/complexluminaires.jpg',
+                    links:[
+                        {text: 'Paper', link:'http://sites.cs.ucsb.edu/~lingqi/publications/paper_complum.pdf'},
+                        {text: 'Video', link:'http://sites.cs.ucsb.edu/~lingqi/publications/video_complum.mp4'}
+                    ]
                 },
                 {
                     title:'Unsupervised Image Reconstruction for Gradient-Domain Volumetric Rendering',
@@ -188,7 +196,11 @@
                         ' <a href="http://vr.sdu.edu.cn/info/1010/1062.htm">Yanning Xu</a>,' +
                         ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>',
                     publication:'Computer Graphics Forum (Proceedings of Pacific Graphics 2020)',
-                    teaser:'images/volgrad.jpg'
+                    teaser:'images/volgrad.jpg',
+                    links:[
+                        {text: 'Paper', link:'https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.14137'},
+                        {text: 'Page',  link:'pg2020/index.html'}
+                    ]
                 }
             ],
             others:[
@@ -245,7 +257,6 @@
         min-height: 10%;
         background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/header.jpg);
         background-repeat:no-repeat;background-size:cover;
-
     }
 
 </style>

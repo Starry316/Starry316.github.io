@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="lt-ie10" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unsupervised Image Reconstruction for Gradient-Domain Volumetric Rendering</title>
+
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="css/foundation.css" rel="stylesheet" type="text/css" />
+  <link href="css/twentytwenty.css" rel="stylesheet" type="text/css" />
+  <link href="css/mycss.css" rel="stylesheet" type="text/css" />
+</head>
+  <body>
+    <div class="row" style="margin-top: 2em;" >
+      <h1 style="text-align: center;"> Unsupervised Image Reconstruction for Gradient-Domain Volumetric Rendering</h1>
+    </div>
+    <div class="row" style="margin-top: 2em;" >
+      <h3 style="text-align: center;">Zilin Xu<sup><a href="#s1">1</a></sup>, <a href="http://sxxy.yzu.edu.cn/art/2018/10/16/art_46525_639219.html">Qiang Sun</a><sup><a href="#s2">2</a></sup>, <a href="http://vr.sdu.edu.cn/info/1010/1060.htm">Lu Wang</a><sup><a href="#s1">1</a></sup>, <a href="http://vr.sdu.edu.cn/info/1010/1062.htm">Yanning Xu</a><sup><a href="#s1">1</a></sup>, <a href="https://wangningbei.github.io/">Beibei Wang</a><sup><a href="#s3">3</a></sup></h3>
+    </div>
+    <div class="row" style="margin-top: 1em;" >
+      <h4 style="text-align: center;"><sup><a name="s1">1</a></sup>School of Software, Shandong University</h4>
+      <h4 style="text-align: center;"><sup><a name="s2">2</a></sup>Yangzhou University</h4>
+
+      <h4 style="text-align: center;"><sup><a name="s3">3</a></sup>School of Computer Science and Engineering, Nanjing University of Science and Technology</h4>
+    </div>
+<!--    <div class="row" style="margin-top: 2em; margin-bottom: 1em">-->
+<!--   -->
+<!--    </div>-->
+    <div class="row" style="margin-top: 1em;" >
+      <h2>1. Introduction</h2>
+      <p>We propose an unsupervised neural network
+        for image reconstruction of gradient-domain volumetric photon density estimation, more specifically for volumetric photon
+        mapping, using a variant of GradNet with an encoded shift connection and a separated auxiliary feature branch, which includes
+        volume based auxiliary features such as transmittance and photon density. Our network smooths the images on global scale
+        and preserves the high frequency details on a small scale. We demonstrate that our network produces a higher quality result,
+        compared to previous work. In this page, we provide an overview of our dataset and an interactive comparison with the existing gradient-domain image reconstruction methods.</p>
+    </div>
+    <div class="row" style="margin-top: 1em;" >
+      <h2>2. Code</h2>
+      <p>The source code of our network can be found here: <a href="https://github.com/Starry316/VolGradNet">
+        [Github]</a>.</p>
+    </div>
+    <div class="row">
+
+      <h2>3. Dataset</h2>
+      <p>Here we show the overview of our training dataset. Including base image, gradient images(dx, dy) and feature buffers.</p>
+
+    </div>
+    <div  class="row train">
+      <div  class="train_imgs">
+        <img src="img/trainingset/img.jpg"/>
+        <span>base image</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/dx.jpg"/>
+        <span>dx</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/dy.jpg"/>
+        <span>dy</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/albedo.jpg"/>
+        <span>albedo</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/depth.jpg"/>
+        <span>depth</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/normal.jpg"/>
+        <span>normal</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/t.jpg"/>
+        <span>t</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/n.jpg"/>
+        <span>n</span>
+      </div>
+      <div  class="train_imgs">
+        <img src="img/trainingset/transmittance.jpg"/>
+        <span>transmittance</span>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 2em; margin-bottom: 1em">
+      <h2>4. Comparison</h2>
+      <div class="large-3 columns">
+        <div class="list-group" style="padding-top: 1em;">
+          <button type="button"  onclick="changeScene('bathroom/')" class="list-group-item">Bathroom</button>
+          <button type="button"  onclick="changeScene('spotlight/')" class="list-group-item">Spotlight</button>
+          <button type="button"  onclick="changeScene('glass/')" class="list-group-item">Glass</button>
+          <button type="button"  onclick="changeScene('soap/')" class="list-group-item">Soap</button>
+          <button type="button"  onclick="changeScene('spotlight-beam/')" class="list-group-item">Spotlight-beam</button>
+          <button type="button"  onclick="changeScene('glass-beam/')" class="list-group-item">Glass-beam</button>
+        </div>
+
+      </div>
+      <div class="large-9 columns">
+        <div class="text" style="position: absolute; top: 40px; right: 20px;z-index: 50"><span id='showLabel' >GradNet</span></div>
+        <div class="text" style="position: absolute; top: 40px; left: 20px;z-index: 50">Ours</div>
+
+        <div class="btn-group" role="group" aria-label="...">
+          <button  class="btn btn-default" disabled="disabled">Ours</button>
+          <button  class="btn btn-default" onclick="change('input.jpg', 'Input')">Input</button>
+          <button  class="btn btn-default" onclick="change('l1.jpg', 'L1')">L1</button>
+          <button class="btn btn-default" onclick="change('l2.jpg'), 'L2'">L2</button>
+          <button  class="btn btn-default"onclick="change('gradNet.jpg','GradNet')">GradNet</button>
+          <button  class="btn btn-default"onclick="change('ngpt.jpg','NGPT')">NGPT</button>
+          <!-- <button  class="btn btn-default"onclick="change('our-f7-n2n.png', 'Ours-f7')">OursWithSurfaceFeatures</button> -->
+          <!-- <button  class="btn btn-default"onclick="change('our-f12.png', 'Ours-No-N2N')">Ours-f12-without-N2n</button> -->
+          <button  class="btn btn-default"onclick="change('ref.jpg','REF')">Reference</button>
+
+
+     
+        </div>
+
+        <div class="twentytwenty-container" style="margin-bottom: 20em;">
+          <img id ='ourImg' src="img/bathroom/our.jpg"/>
+          <img id='compareImg' src="img/bathroom/gradNet.jpg" />
+    
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous"></script>
+    <script src="js/jquery.event.move.js"></script>
+    <script src="js/jquery.twentytwenty.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+      var scene = "bathroom/";
+      function changeScene(newScene){
+          scene = newScene;
+          $("#showLabel").html("GradNet");
+          $("#ourImg").attr('src', "img/"+ scene + "our.jpg");
+          $("#compareImg").attr('src', "img/"+ scene + "gradNet.jpg");
+      }
+      function change(newSrc, name){
+        $("#showLabel").html(name);
+        let newPath = "img/"+ scene + newSrc
+         $("#compareImg").attr('src',newPath);
+      }
+      $(document).ready(function () {
+     
+      });
+    $(function(){
+  
+      $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.7,   no_overlay: true, //Do not show the overlay with before and after
+    move_slider_on_hover: true});
+
+    });
+    </script>
+  </body>
+</html>
