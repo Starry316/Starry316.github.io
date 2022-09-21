@@ -184,12 +184,21 @@
                 },
                 {
                     title:'Neural Complex Luminaires: Representation and Rendering',
-                    abstract:'Our neural complex luminaire framework efficiently represents complicated light sources that are extremely costly to evaluate using traditional\n' +
-                        'approaches due to the convoluted paths light takes through their geometry. Our approach easily integrates into standard Monte Carlo rendering systems\n' +
-                        'including those using multiple importance sampling (MIS). Here we compare our results rendered with forward path tracing at 128 samples per pixel (spp) to\n' +
-                        'the reference rendered using bidirectional path tracing (BDPT) at 1024 spp on two scenes with different luminaires. Our method is able to match both the\n' +
-                        'luminaire appearance as well as the high frequency light patterns on the wall. Overall, we can attain similar quality and low-noise results with fewer samples\n' +
-                        'per pixel (resulting in speedups of 15× and nearly 22×, respectively), without requiring the original luminaire geometry at runtime.',
+                    abstract:'Complex luminaires, such as grand chandeliers, can be extremely costly to render because ' +
+                        'the light-emitting sources are typically encased in complex refractive geometry, creating difficult' +
+                        ' light paths that require many samples to evaluate with Monte Carlo approaches. Previous work has' +
+                        ' attempted to speed up this process, but the methods are either inaccurate, require the storage ' +
+                        'of very large lightfields, and/or do not fit well into modern path-tracing frameworks. Inspired' +
+                        ' by the success of deep networks, which can model complex relationships robustly and be evaluated' +
+                        ' efficiently, we propose to use a machine learning framework to compress a complex luminaire’s' +
+                        ' lightfield into an implicit neural representation. Our approach can easily plug into conventional' +
+                        ' renderers, as it works with the standard techniques of path tracing and multiple importance sampling (MIS).' +
+                        ' Our solution is to train three networks to perform the essential operations for evaluating the complex luminaire at' +
+                        ' a specific point and view direction, importance sampling a point on the luminaire given a shading location,' +
+                        ' and blending to determine the transparency of luminaire queries to properly composite them with other scene' +
+                        ' elements. We perform favorably relative to state-of-the-art approaches and render final images that are close' +
+                        ' to the high-sample-count reference with only a fraction of the computation and storage costs, with no need' +
+                        ' to store the original luminaire geometry and materials',
                     authors:'<a href="http://junqiuzhu.com/" target="_blank">Junqiu Zhu</a>,' +
                         ' <a href="https://velysianp.wixsite.com/elysonbaipersonal" target="_blank">Yaoyi Bai</a>,' +
                         ' <b>Zilin Xu</b>,' +
