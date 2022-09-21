@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lightweight Neural Basis Functions for All-Frequency Shading</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes, minimal-ui">
+</head>
+<body>
+<div id="app">
+  <v-app>
+    <v-row justify="center">
+      <v-col class="py-4 text-center" :xl="7" :lg="7" :md="8" :sm="12" :xs="12">
+        <!--  Title and teaser -->
+        <v-row justify="center" class="mt-12">
+          <v-sheet tile>
+            <div class="text-h3">{{title}}</div>
+            <div class="text-h4 mt-6">{{publisher}}</div>
+          </v-sheet>
+          <v-col :cols="12" class="mt-2" >
+                            <span v-for="author in authors" class="mr-4">
+                                <span v-if="author.link != null" >
+                                    <a :href=author.link>{{author.name}}</a>
+                                    <sup>{{author.sup}}</sup>
+                                </span>
+                                <span v-else>
+                                    {{author.name}}
+                                    <sup>{{author.sup}}</sup>
+                                </span>
+                            </span>
+          </v-col>
+
+          <v-col :cols="12" class="mt-2">
+                            <span v-for="item in institutions" class="mr-4">
+                                <sup>{{item.sup}}</sup>{{item.name}}
+                            </span>
+          </v-col>
+          <v-col :cols="12">
+                            <span>
+                                <sup>*</sup>Corresponding author
+                            </span>
+          </v-col>
+          <v-img max-width="100%" class="mt-2"
+                 :src="teaserPath">
+          </v-img>
+        </v-row>
+
+        <!--  Abstract -->
+        <v-row justify="left" class="mt-8">
+          <v-col :cols="12">
+            <div class="text-h4 text-left">Abstract</div>
+          </v-col>
+        </v-row>
+        <v-row justify="left" class="mt-4">
+          <v-col :cols="12">
+            <div class="text-body-1 text-left">
+              {{abstract}}
+            </div>
+          </v-col>
+        </v-row>
+
+        <!--  Download -->
+        <v-row justify="left" class="mt-8">
+          <v-col class="col-12 text-left">
+            <div class="text-h4"> Download</div>
+          </v-col>
+        </v-row>
+        <v-row justify="left" class="mt-4">
+          <div class="text-center pl-2">
+            <v-btn color="light-blue darken-3" dark :href="paperPath" target="_blank"> PAPER
+              <v-icon class="ml-2 white--text" >mdi-cloud-download</v-icon>
+            </v-btn>
+            <v-btn color="light-blue darken-3" dark :href="supplementalPath" target="_blank"> SUPPLEMENTARY
+              <v-icon class="ml-2 white--text" >mdi-cloud-download</v-icon>
+            </v-btn>
+          </div>
+        </v-row>
+
+        <!--  Video -->
+        <v-row justify="left" class="mt-8">
+          <v-col class="col-12 text-left">
+            <div class="text-h4"> Video</div>
+          </v-col>
+        </v-row>
+        <v-row justify="left" class="mt-4">
+          <video controls="" preload="metadata" align="center" width="100%" style="display:block;   width:100%;">
+            <source :src="videoPath" type="video/mp4">
+          </video>
+        </v-row>
+
+
+        <!--  Bibtex -->
+        <v-row justify="left" class="mt-8">
+          <v-col class="col-12 text-left">
+            <v-sheet tile>
+              <div class="text-h4 text-left"> Bibtex</div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+
+        <pre id=bibtex class="text-left">
+                    <span style="font-family: sans-serif">
+{{bibtex}}
+                    </span>
+                </pre>
+      </v-col>
+    </v-row>
+
+    <!--  footer  -->
+    <v-footer color=indigo padless>
+      <v-row justify="center" no-gutters>
+        <v-btn
+                color="white"
+                text
+                large
+                plain
+        >
+          {{title}}
+        </v-btn>
+      </v-row>
+    </v-footer>
+  </v-app>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+    data: {
+      title:'Lightweight Neural Basis Functions for All-Frequency Shading',
+      publisher:'SIGGRAPH ASIA 2022',
+      teaserPath:'img/representative.jpg',
+      paperPath:'pdf/235_paper.pdf',
+      supplementalPath:'pdf/235_supplemental.pdf',
+        videoPath:'video/235_video.mp4',
+      abstract:'Our lightweight neural basis functions compactly represent complex 2D spherical functions (lighting, visibility and ' +
+              'BRDF), and efficiently support practical computation, such as Double Product Integral (DPI, left) and Triple Product Integral ' +
+              '(TPI, right), pervasively used for all-frequency shading. Our neural basis functions faithfully preserve all-frequency details ' +
+              'from the ground truth (GT). However, spherical harmonics (SH) suffer from the absence of all-frequency shadows, while ' +
+              'spherical Gaussians (SG) and wavelets lose details at equal compression rates compared with ours (0.39%). Also, our neural basis ' +
+              'functions easily support efficient rotation (R), and they are temporally stable without flickering as opposed to wavelets.',
+      authors:[
+        {name:'Zilin Xu', sup:'1', link:'https://starry316.github.io/' },
+        {name:'Zheng Zeng', sup:'2', link:'https://zheng95z.github.io/'},
+        {name:'Lifan wu', sup:'3', link:'https://winmad.github.io/'},
+        {name:'Lu Wang', sup:'1*', link:'http://vr.sdu.edu.cn/info/1010/1060.htm'},
+        {name:'Ling-Qi Yan', sup:'2', link:'https://sites.cs.ucsb.edu/~lingqi/'},
+      ],
+      institutions:[{sup:'1', name:'Shandong University'}, {sup:'2', name:'University of California, Santa Barbara'}, {sup:'3', name:'NVIDIA'}],
+        bibtex:
+            '@article{xu:2022:nnbasis,\n' +
+            '    title={Lightweight Neural Basis Functions for All-Frequency Shading},\n' +
+            '    author={Zilin, Xu and Zheng, Zeng and Lifan, Wu, Lu, Wang and Ling-Qi, Yan},\n' +
+            '    journal={xxxxx},\n' +
+            '    year={2022},\n' +
+            '    volume={xx},\n' +
+            '    number={x},\n' +
+            '}'
+    },
+    methods:{
+      test(){
+        console.log("1234");
+      }
+    },
+    computed: {
+      cols () {
+        const { lg, sm } = this.$vuetify.breakpoint
+        return lg ? 6 : sm ? 9 : 8
+      },
+    },
+  })
+
+</script>
+</html>
