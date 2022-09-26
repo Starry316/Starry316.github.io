@@ -49,16 +49,50 @@
 
             <!--  Right column -->
             <v-col class="py-4" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
-                <!--  About me -->
                 <v-row justify="left" >
-                    <div class="text-h4 mt-4">About me</div>
-                </v-row>
-                <v-row justify="left" >
-                    <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
-                        <p v-html="selfIntroduction"></p>
+                    <v-col class="col-6 pr-6" >
+                        <!--  About me -->
+                        <v-row justify="left" >
+                            <div class="text-h4 mt-4">About me</div>
+                        </v-row>
+                        <v-row justify="left" >
+                            <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
+                                <p v-html="selfIntroduction"></p>
+                            </v-col>
+                        </v-row>
+                        <!--  About me end -->
+                    </v-col>
+                    <v-divider
+                            vertical
+                    ></v-divider>
+                    <v-col class="col-6 pl-12">
+                        <!--  News -->
+                        <v-row justify="left" >
+                            <div class="text-h4 mt-4">News</div>
+                        </v-row>
+                        <div v-for="item in news">
+                            <v-row justify="left" v-if="item.img == null">
+                                <v-col class="col-12">
+                                    <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
+                                </v-col>
+                            </v-row>
+                            <v-row justify="left"  v-if="item.img != null">
+                                <v-col class="col-8">
+                                    <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
+                                </v-col>
+                                <v-col class="col-1"></v-col>
+                                <v-col class="col-3">
+                                    <v-img width="85%" class="mt-2"
+                                           :src="item.img">
+                                    </v-img>
+                                </v-col>
+                            </v-row>
+                        </div>
+                        <!--  News end -->
                     </v-col>
                 </v-row>
-                <!--  About me end -->
+
+
 
                 <!--  Publications -->
                 <v-row justify="left" >
@@ -100,12 +134,12 @@
                         <br>
                         <i>{{item.publication}}</i>
                         <br><br>
-<!--                        <p>-->
-<!--                            {{item.abstract}}-->
-<!--                        </p>-->
                     </v-col>
                 </v-row>
                 <!--  Others end -->
+
+
+
 
             </v-col>
             <!--  Right column end -->
@@ -154,12 +188,15 @@
         vuetify: new Vuetify(),
         data: {
             value: 1,
+            news:[{date:'09/2022',
+                    context:'With the inestimable assistance of the <a href="http://sites.cs.ucsb.edu/~lingqi/">legendary chicken eater</a> and the marvelous GingerPoi, we hit Diamond in Apex Legends this season!',
+                    img:'images/diamond_3.png'},
+                {date:'08/2022', context:'I get my first SIGGRAPH Asia paper!'}],
             selfIntroduction:
                 'Hello! I‘m Zilin, I received my Bachelor degree from Shandong University in 2020.\n' +
                 'Currently I\'m a third-year post graduate student at Shandong University, supervised\n' +
-                'by Prof. <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">Lu Wang</a>.\n' +
-                'It is very proud for me that I\'m also co-surpervised by Prof. <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>\n' +
-                'and Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.',
+                'by Prof. <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>.\n' +
+                'It is very proud for me that I\'m also co-surpervised by Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.',
             publications:[
                 {
                     title:'Lightweight Neural Basis Functions for All-Frequency Shading',
@@ -173,7 +210,7 @@
                     authors:'<b>Zilin Xu</b>,' +
                         ' <a href="https://zheng95z.github.io/" target="_blank">Zheng Zeng</a>,' +
                         ' <a href="https://winmad.github.io/">Lifan Wu</a>,' +
-                        ' <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">Lu Wang</a>,' +
+                        ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
                     publication:'SIGGRAPH ASIA 2022',
                     teaser:'sigas2022/img/representative.jpg',
@@ -204,7 +241,7 @@
                         ' <b>Zilin Xu</b>,' +
                         ' <a href="https://web.ece.ucsb.edu/~sbako/" target="_blank">Steve Bako</a>,' +
                         ' <a href="https://www.edgarphd.com/" target="_blank">Edgar Velázquez-Armendáriz</a>,' +
-                        ' <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">Lu Wang</a>,' +
+                        ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
                         ' <a href="https://web.ece.ucsb.edu/~psen/" target="_blank">Pradeep Sen</a>,' +
                         ' <a href="http://miloshasan.net/" target="_blank">Miloš Hašan</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
@@ -229,7 +266,7 @@
                         ' Although we only considered volumetric photon mapping, it’s straightforward to extend our method for other forms, like beam radiance estimation.\n',
                     authors:'<b>Zilin Xu</b>,' +
                         ' Qiang Sun,' +
-                        ' <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">Lu Wang</a>,' +
+                        ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
                         ' <a href="http://vr.sdu.edu.cn/info/1010/1062.htm">Yanning Xu</a>,' +
                         ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>',
                     publication:'Computer Graphics Forum (Proceedings of Pacific Graphics 2020)',
@@ -257,7 +294,7 @@
                         'Finally, this paper proposes possible ideas and future prospects for the combination of machine learning and realistic rendering.',
                     authors:
                         'ZHAO Ye-Zi,'+
-                        ' <a href="http://vr.sdu.edu.cn/info/1010/1060.htm" target="_blank">WANG Lu</a>,' +
+                        ' <a href="https://wanglusdu.github.io/" target="_blank">WANG Lu</a>,' +
                         ' <a href="http://vr.sdu.edu.cn/info/1010/1062.htm">XU Yan-Ning</a>,' +
                         ' <a href="https://zheng95z.github.io/">ZENG Zheng</a>,' +
                         ' Ge Liang-Sheng,' +
