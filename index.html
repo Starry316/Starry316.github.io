@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-    <link rel="icon" href='images/diamond_s15.png'>
+    <link rel="icon" href='images/icon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 
@@ -16,12 +16,11 @@
 <div id="app">
     <v-app>
         <div class="header-img">
-
         </div>
         <v-container >
         <v-row justify="center">
             <!--  Left column -->
-            <v-col class="py-4 text-center" :xl="4" :lg="4" :md="4" :sm="4" :xs="4">
+            <v-col class="py-4 text-center" :xl="4" :lg="4" :md="4" :sm="12" :xs="12">
                 <!--  Self introduction -->
                 <v-row justify="center" style="margin-top: -3em">
                     <v-avatar size="192" >
@@ -49,9 +48,9 @@
             <!--  Left column end -->
 
             <!--  Right column -->
-            <v-col class="py-4" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+            <v-col class="py-4" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
                 <v-row justify="left" >
-                    <v-col class="pr-3" :xl="6" :lg="6" :md="8" :sm="12" :xs="12" >
+                    <v-col class="pr-3" :xl="6" :lg="6" :md="6" :sm="12" :xs="12" >
                         <!--  About me -->
                         <v-row justify="left" >
                             <div class="text-h4 mt-4">About me</div>
@@ -66,9 +65,9 @@
                     <v-divider
                             vertical
                     ></v-divider>
-                    <v-col class="pl-6" :xl="6" :lg="6" :md="8" :sm="12" :xs="12" >
+                    <v-col class="pl-6" :xl="6" :lg="6" :md="6" :sm="12" :xs="12" >
                         <!--  News -->
-                       <!--  <v-row justify="left" >
+                        <v-row justify="left" >
                             <div class="text-h4 mt-4">News</div>
                         </v-row>
                         <div v-for="item in news">
@@ -88,13 +87,10 @@
                                     </v-img>
                                 </v-col>
                             </v-row>
-                        </div> -->
+                        </div>
                         <!--  News end -->
                     </v-col>
                 </v-row>
-
-
-
                 <!--  Publications -->
                 <v-row justify="left" >
                     <div class="text-h4 mt-4">Publications</div>
@@ -128,7 +124,7 @@
                     <div class="text-h4 mt-4">Other publications</div>
                 </v-row>
                 <v-row justify="left" v-for="item in others" >
-                    <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
+                    <v-col xl="12" lg="12" md="12" sm="12" xs="12">
                         <b>{{item.title}}</b>
                         <br>
                         <span v-html="item.authors"></span>
@@ -137,14 +133,38 @@
                         <br><br>
                     </v-col>
                 </v-row>
+                <!-- <v-divider></v-divider> -->
                 <!--  Others end -->
-
-
-
-
+                <v-row justify="left">
+                    <div class="text-h4 mt-4">Misc.</div>
+                </v-row>
+                <v-row justify="left">
+                    <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
+                        <p>
+                            I'm a passionate hardcore gamer who loves playing almost every type of video game (except horror games like Phasmophobia). I started playing video games at the age of 4. 
+                            Warcraft 3 and Command & Conquer: Red Alert 2 were my first games. When I was in middle school, I was shocked by the incredibly realistic graphics (at that time) of Crysis 2, 
+                            and it sparked my desire to pursue a career in computer graphics.
+                        </p>
+                        <p>
+                            I'm good at FPS esports games. In Apex Legends, I reached the highest rank, Apex Predator (top 750 players in the world); in Valorant, I've solo queued to Diamond; and in Overwatch, I'm a multi-season Master. 
+                        </p>
+                        <p>
+                            Besides esports games, I enjoy narrative-driven games with good storylines, such as Red Dead Redemption 2 and Baldur's Gate 3, and ARPG games like Bloodborne and Elden Ring. I also enjoy some lightweight rogue-like (or rogue-lite) games.
+                            My favorite game this year is Black Myth: Wukong, and I believe this game will win the TGA's Game of the Year award.
+                        </p>
+                        <p>
+                            This love for gaming is what inspired me to choose rendering as my research area. I hope that one day, my research outcome can be widely applied in the video game industry to create the next generation of game graphics.
+                        </p>
+                    </v-col>
+                    <v-col xl="4" lg="4" md="4" sm="12" xs="12">
+                        <v-img width="80%" class="mt-2" src="images/apex.png"/>
+                    </v-col>
+                </v-row>
             </v-col>
             <!--  Right column end -->
         </v-row>
+    
+    
         </v-container>
 
         <v-snackbar
@@ -189,14 +209,30 @@
         vuetify: new Vuetify(),
         data: {
             value: 1,
-            news:[{date:'09/2022',
-                    context:'With the inestimable assistance of the <a href="http://sites.cs.ucsb.edu/~lingqi/">legendary chicken eater</a> and the marvelous <a href="https://poiw.github.io/">GingerPoi</a>, we hit Diamond in Apex Legends this season!',
-                    img:'images/diamond_s15.png'},
-                {date:'08/2022', context:'I get my first SIGGRAPH Asia paper!'}],
+            news:[{date:'09/2024',context:'I finished my summer intership at Autodesk.'},
+                {date:'08/2024', context:'I get one more SIGGRAPH paper accepted!'},
+                {date:'07/2024',context:'I reach Apex Predator in Apex Legends!'},],
             selfIntroduction:
                 'Hello! I‘m Zilin, I received my Bachelor and Master degree from Shandong University. \n' +
-                'Currently I\'m a first year PhD student at the University of California, Santa Barbara, supervised by Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
+                'Currently I\'m a second year PhD student at the University of California, Santa Barbara, supervised by Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
             publications:[
+                {
+                    title:'A Dynamic By-example BTF Synthesis Scheme',
+                    abstract:'Measured Bidirectional Texture Function (BTF) can faithfully reproduce a realistic appearance but is costly to acquire and store due to its 6D nature (2D spatial and 4D angular). Therefore, it is practical and necessary for rendering to synthesize BTFs from a small example patch. While previous methods managed to produce plausible results, we find that they seldomly take into consideration the property of being dynamic, so a BTF must be synthesized before the rendering process, resulting in limited size, costly pre-generation and storage issues. In this paper, we propose a dynamic BTF synthesis scheme, where a BTF at any position only needs to be synthesized when being queried. Our insight is that, with the recent advances in neural dimension reduction methods, a BTF can be decomposed into disjoint low-dimensional components. We can perform dynamic synthesis only on the positional dimensions, and during rendering, recover the BTF by querying and combining these low-dimensional functions with the help of a lightweight Multilayer Perceptron (MLP). Consequently, we obtain a fully dynamic 6D BTF synthesis scheme that does not require any pre-generation, which enables efficient rendering of our infinitely large and non-repetitive BTFs on the fly. We demonstrate the effectiveness of our method through various types of BTFs taken from UBO2014.\n',
+                    authors:
+                        ' <b>Zilin Xu</b>,' +
+                        ' <a href="https://research.manchester.ac.uk/en/persons/zahra.montazeri" target="_blank">Zahra Montazeri</a>,' +
+                        ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>,'+
+                        ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
+                    publication:'SIGGRAPH ASIA 2024',
+                    teaser:'images/teaser_siga24.png',
+                    links:[
+                        {text: 'Paper (arxiv)', link:'https://arxiv.org/abs/2405.14025'},
+                        {text: 'Project Page (coming soon)',  link:''}
+                        // {text: 'Paper', link:'https://zheng95z.github.io/assets/files/egsr2023-roma.pdf'},
+                        // {text: 'Project Page',  link:'https://zheng95z.github.io/publications/roma23'}
+                    ]
+                },
                 {
                     title:'Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing',
                     abstract:'We present a new software ray tracing solution that efficiently computes visibilities in dynamic scenes. We first introduce a novel scene representation: ray-aligned occupancy map array (ROMA) that is generated by rasterizing the dynamic scene once per frame. Our key contribution is a fast and low-divergence tracing method computing visibilities in constant time, without constructing and traversing the traditional intersection acceleration data structures such as BVH. To further improve accuracy and reduce aliasing, we use a spatiotemporal scheme to stochastically distribute the candidate ray samples. We demonstrate the practicality of our method by integrating it into a modern real-time renderer and showing better performance compared to existing techniques based on distance fields (DFs). Our method is free of the typical artifacts caused by incomplete scene information, and is about 2.5x–10x faster than generating and tracing DFs at the same resolution and equal storage.\n',
@@ -342,8 +378,8 @@
     .header-img{
         width: 100%;
         height: 100%;
-        min-height: 20%;
-        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/test.jpg);
+        min-height: 10%;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/header.jpg);
         background-repeat:no-repeat;background-size:cover;
     }
 
