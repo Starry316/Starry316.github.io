@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lightweight Neural Basis Functions for All-Frequency Shading</title>
+  <title>A Dynamic By-example BTF Synthesis Scheme</title>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
+  <link href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
@@ -13,7 +15,7 @@
 <div id="app">
   <v-app>
     <v-row justify="center">
-      <v-col class="py-4 text-center" :xl="7" :lg="7" :md="8" :sm="12" :xs="12">
+      <v-col class="py-4 text-center" :xl="6" :lg="6" :md="8" :sm="12" :xs="12">
         <!--  Title and teaser -->
         <v-row justify="center" class="mt-12">
           <v-sheet tile>
@@ -43,10 +45,18 @@
                                 <sup>*</sup>Corresponding author
                             </span>
           </v-col> -->
-          <v-img max-width="100%" class="mt-2"
+          <!-- <v-img max-width="100%" class="mt-2"
                  :src="teaserPath">
-          </v-img>
+          </v-img> -->
+
+          <div class="text-center image-compare " id="image-compare_1">
+            <img src="img/comp2_1.png" alt="" />
+            <img src="img/comp2_2.png" alt="" />
+          </div>
         </v-row>
+
+
+     
 
         <!--  Abstract -->
         <v-row justify="left" class="mt-8">
@@ -91,6 +101,28 @@
           </video>
         </v-row>
 
+        <!--  More Results -->
+        <v-row justify="left" class="mt-8">
+          <v-col class="col-12 text-left">
+            <div class="text-h4"> More Results</div>
+          </v-col>
+        </v-row>
+        <v-row  class="mt-2 mb-4">
+          <v-col :cols="12">
+            <div class="text-center image-compare" id="image-compare_2">
+              <img src="img/comp1_1.png" alt="" />
+              <img src="img/comp1_2.png" alt="" />
+            </div>
+          </v-col>
+
+          <v-col :cols="12">
+            <div class="text-center image-compare" id="image-compare_2">
+              <img src="img/comp3_1.png" alt="" />
+              <img src="img/comp3_2.png" alt="" />
+            </div>
+          </v-col>
+
+        </v-row>
 
          <!-- Bibtex
         <v-row justify="left" class="mt-8">
@@ -161,6 +193,49 @@
       test(){
         console.log("1234");
       }
+    },
+    mounted() {
+
+      const options = {
+
+        // UI Theme Defaults
+
+        controlColor: "#FFFFFF",
+        controlShadow: true,
+        addCircle: true,
+        addCircleBlur: false,
+
+        // Label Defaults
+
+        showLabels: true,
+        labelOptions: {
+          before: 'w/ Synthesis',
+          after: 'w/o Synthesis',
+          onHover: true
+        },
+
+        // Smoothing
+
+        smoothing: true,
+        smoothingAmount: 300,
+
+        // Other options
+
+        hoverStart: false,
+        verticalMode: false,
+        startingPoint: 50,
+        fluidMode: false
+      };
+
+      console.log('Component has been mounted!');
+      // const element = document.getElementById("image-compare");
+      // const viewer = new ImageCompare(element, options).mount();
+      const viewers = document.querySelectorAll(".image-compare");
+      viewers.forEach((element) => {
+        let view = new ImageCompare(element, options).mount();
+      });
+
+
     },
     computed: {
       cols () {
