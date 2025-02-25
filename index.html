@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-    <link rel="icon" href='images/icon.png'>
+    <link rel="icon" href='images/icon.jpg'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 
@@ -58,10 +58,11 @@
                         <v-row justify="left" >
                             <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
                                 <p v-html="selfIntroduction"></p>
-                                <a href="cv/cv_0924.pdf" target="_blank">R&eacute;sum&eacute; <v-icon color="primary" size="x-large">mdi-file-account</v-icon></a>
+                                <a href="cv/cv.pdf" target="_blank">R&eacute;sum&eacute; <v-icon color="primary" size="x-large">mdi-file-account</v-icon></a>
                             </v-col>
                         </v-row>
                         <!--  About me end -->
+  
                     </v-col>
                     <v-divider
                             vertical
@@ -92,6 +93,20 @@
                         <!--  News end -->
                     </v-col>
                 </v-row>
+
+                      
+                <!--  Research Interest-->
+                <v-row justify="left" >
+                    <div class="text-h4 mt-4">Research interests</div>
+                </v-row>
+                <v-row justify="left" >
+                    <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
+                        <p v-html="researchInterest"></p>
+                    </v-col>
+                </v-row>
+                <!--  Research Interest end -->
+
+
                 <!--  Publications -->
                 <v-row justify="left" >
                     <div class="text-h4 mt-4">Selected Publications</div>
@@ -177,7 +192,7 @@
                         </p>
                         <p>
                             Besides esports games, I enjoy narrative-driven games with good storylines, such as <i>Red Dead Redemption 2</i> and <i>Baldur's Gate 3</i>, and ARPG games like <i>Bloodborne</i> and <i>Elden Ring</i>. I also enjoy some lightweight rogue-like (or rogue-lite) games.
-                            My favorite game this year is <i>Black Myth: Wukong</i>, and I believe this game will win the TGA's Game of the Year award.
+                            My favorite game this year is <i>Black Myth: Wukong</i> <del>, and I believe this game will win the TGA's Game of the Year award</del>.
                         </p>
                         <p>
                             This love for gaming is what inspired me to choose rendering as my research area. I hope that one day, my research outcome can be widely applied in the video game industry to create the next generation of game graphics.
@@ -232,8 +247,10 @@
         vuetify: new Vuetify(),
         data: {
             value: 1,
-            news:[{date:'09/2024',context:'I finish my summer internship at Autodesk.'},
-                {date:'08/2024', context:'I get one more SIGGRAPH paper accepted!'},
+            researchInterest:"Achieving a highly realistic appearance is typically difficult in real-time rendering. My research mainly focuses on leveraging highly lightweight neural networks to efficiently represent complex appearances at real-time performance and also explores unique features (e.g., material synthesis) that are unachievable with traditional methods. ",
+            news:[{date:'12/2024',context:'I will be a research scientist intern at Meta next summer.'},
+                {date:'09/2024',context:'I finish my summer internship at Autodesk.'},
+                {date:'08/2024', context:'I get one more SIGGRAPH Asia paper accepted!'},
                 {date:'07/2024',context:'I reach Apex Predator in Apex Legends!'},],
             selfIntroduction:
                 'Hello! I\'m Zilin, I received my Bachelor and Master degree from Shandong University. \n' +
