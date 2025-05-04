@@ -192,7 +192,7 @@
                         </p>
                         <p>
                             Besides esports games, I enjoy narrative-driven games with good storylines, such as <i>Red Dead Redemption 2</i> and <i>Baldur's Gate 3</i>, and ARPG games like <i>Bloodborne</i> and <i>Elden Ring</i>. I also enjoy some lightweight rogue-like (or rogue-lite) games.
-                            My favorite game this year is <i>Black Myth: Wukong</i> <del>, and I believe this game will win the TGA's Game of the Year award</del>.
+                            My favorite game this year is <i>Clair Obscur: Expedition 33</i> , and I believe this game will win the TGA's Game of the Year award.
                         </p>
                         <p>
                             This love for gaming is what inspired me to choose rendering as my research area. I hope that one day, my research outcome can be widely applied in the video game industry to create the next generation of game graphics.
@@ -248,14 +248,37 @@
         data: {
             value: 1,
             researchInterest:"Achieving a highly realistic appearance is typically difficult in real-time rendering. My research mainly focuses on leveraging highly lightweight neural networks to efficiently represent complex appearances at real-time performance and also explores unique features (e.g., material synthesis) that are unachievable with traditional methods. ",
-            news:[{date:'12/2024',context:'I will be a research scientist intern at Meta next summer.'},
+            news:[
+                {date:'05/2025',context:'Our paper is accepted to SIGGRAPH 2025, and some of our video clips are selected to be in the Technical Papers Video Trailer! '},
+                {date:'12/2024',context:'I will be a research scientist intern at Meta next summer.'},
                 {date:'09/2024',context:'I finish my summer internship at Autodesk.'},
                 {date:'08/2024', context:'I get one more SIGGRAPH Asia paper accepted!'},
-                {date:'07/2024',context:'I reach Apex Predator in Apex Legends!'},],
+                // {date:'07/2024',context:'I reach Apex Predator in Apex Legends!'},
+            ],
             selfIntroduction:
                 'Hello! I\'m Zilin, I received my Bachelor and Master degree from Shandong University. \n' +
                 'Currently I\'m a second year PhD student at the University of California, Santa Barbara, supervised by Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
             publications:[
+                {
+                    title:'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
+                    abstract:'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette}, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette}) through a dynamic two-step displacement tracing technique.\n',
+                    authors:
+                        ' <b>Zilin Xu</b>,' +
+                        ' <a href="https://chenxiang0810.github.io/" target="_blank">Xiang Chen</a>,'+
+                        ' Chen Liu,'+
+                        ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>,'+
+                        ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
+                        ' <a href="https://research.manchester.ac.uk/en/persons/zahra.montazeri" target="_blank">Zahra Montazeri</a>,' +
+                        ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
+                    publication:'SIGGRAPH 2025',
+                    teaser:'images/teaser_sig25.png',
+                    links:[
+                        {text: 'Paper (Coming soon)', link:''},
+                        {text: 'Project Page (Coming soon)',  link:''}
+                        // {text: 'Paper', link:'https://zheng95z.github.io/assets/files/egsr2023-roma.pdf'},
+                        // {text: 'Project Page',  link:'https://zheng95z.github.io/publications/roma23'}
+                    ]
+                },
                 {
                     title:'A Dynamic By-example BTF Synthesis Scheme',
                     abstract:'Measured Bidirectional Texture Function (BTF) can faithfully reproduce a realistic appearance but is costly to acquire and store due to its 6D nature (2D spatial and 4D angular). Therefore, it is practical and necessary for rendering to synthesize BTFs from a small example patch. While previous methods managed to produce plausible results, we find that they seldomly take into consideration the property of being dynamic, so a BTF must be synthesized before the rendering process, resulting in limited size, costly pre-generation and storage issues. In this paper, we propose a dynamic BTF synthesis scheme, where a BTF at any position only needs to be synthesized when being queried. Our insight is that, with the recent advances in neural dimension reduction methods, a BTF can be decomposed into disjoint low-dimensional components. We can perform dynamic synthesis only on the positional dimensions, and during rendering, recover the BTF by querying and combining these low-dimensional functions with the help of a lightweight Multilayer Perceptron (MLP). Consequently, we obtain a fully dynamic 6D BTF synthesis scheme that does not require any pre-generation, which enables efficient rendering of our infinitely large and non-repetitive BTFs on the fly. We demonstrate the effectiveness of our method through various types of BTFs taken from UBO2014.\n',
@@ -268,8 +291,8 @@
                     teaser:'images/teaser_siga24.png',
                     // teaser:'sigas2024/img/representative.jpg',
                     links:[
-                        {text: 'Paper (arxiv)', link:'https://arxiv.org/abs/2405.14025'},
-                        {text: 'Project Page (WIP)',  link:'sigas2024/index.html'}
+                        {text: 'Paper', link:'https://sites.cs.ucsb.edu/~lingqi/publications/paper_dynbtfsyn.pdf'},
+                        {text: 'Project Page',  link:'sigas2024/index.html'}
                         // {text: 'Paper', link:'https://zheng95z.github.io/assets/files/egsr2023-roma.pdf'},
                         // {text: 'Project Page',  link:'https://zheng95z.github.io/publications/roma23'}
                     ]
