@@ -15,7 +15,7 @@
 <body>
 <div id="app">
     <v-app>
-        <div class="header-img">
+        <div :class="headerClass">
         </div>
         <v-container >
         <v-row justify="center">
@@ -38,10 +38,13 @@
                     <h4>Pronounced as Tzu Lim Hsu</h4>
                 </v-row>
                 <v-row justify="center" >
-                    <span>University of California, Santa Barbara</span>
+                    University of California, Santa Barbara
                 </v-row>
                 <v-row justify="center" >
-                    <span>zilinxu@ucsb.edu</span>
+                    zilinxu@ucsb.edu
+                </v-row>
+                <v-row justify="center" >
+                    <a href="cv/cv.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[05/25]
                 </v-row>
                 <!--  Self introduction end -->
             </v-col>
@@ -58,7 +61,6 @@
                         <v-row justify="left" >
                             <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
                                 <p v-html="selfIntroduction"></p>
-                                <a href="cv/cv.pdf" target="_blank">R&eacute;sum&eacute; <v-icon color="primary" size="x-large">mdi-file-account</v-icon></a>
                             </v-col>
                         </v-row>
                         <!--  About me end -->
@@ -72,13 +74,14 @@
                         <v-row justify="left" >
                             <div class="text-h4 mt-4">News</div>
                         </v-row>
-                        <div v-for="item in news">
-                            <v-row justify="left" v-if="item.img == null">
+                        <div v-for="(item, index) in news.slice(0, itemsToShow)" :key="index">
+                            <!-- <v-row justify="left" v-if="item.img == null"> -->
+                            <v-row justify="left">
                                 <v-col class="col-12">
                                     <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
                                 </v-col>
                             </v-row>
-                            <v-row justify="left"  v-if="item.img != null">
+                            <!-- <v-row justify="left"  v-if="item.img != null">
                                 <v-col class="col-8">
                                     <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
                                 </v-col>
@@ -88,8 +91,11 @@
                                            :src="item.img">
                                     </v-img>
                                 </v-col>
-                            </v-row>
+                            </v-row> -->
                         </div>
+                        <v-btn plain small @click="toggleNews" >
+                            {{ moreNews ? 'Less' : 'More' }}
+                        </v-btn>
                         <!--  News end -->
                     </v-col>
                 </v-row>
@@ -97,7 +103,7 @@
                       
                 <!--  Research Interest-->
                 <v-row justify="left" >
-                    <div class="text-h4 mt-4">Research interests</div>
+                    <div class="text-h4 mt-4">Research Interests</div>
                 </v-row>
                 <v-row justify="left" >
                     <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
@@ -111,7 +117,7 @@
                 <v-row justify="left" >
                     <div class="text-h4 mt-4">Selected Publications</div>
                 </v-row>
-                <v-row justify="left" v-for="item in publications" >
+                <v-row justify="left" v-for="(item, index) in publications" >
                     <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
                         <v-img width="100%" class="mt-2"
                                :src="item.teaser">
@@ -128,9 +134,12 @@
                             <a :href="linksItem.link" target="_blank">{{linksItem.text}}</a>
                         </span>
                         <br>
-                        <p>
+                        <p :class="{'truncate': !showFullText[index]}">
                             {{item.abstract}}
                         </p>
+                        <v-btn plain small @click="toggleText(index)" class="custom-btn">
+                            {{ showFullText[index] ? 'Less' : 'More' }}
+                        </v-btn>
                         <v-divider></v-divider>
                     </v-col>
                 </v-row>
@@ -184,15 +193,14 @@
                     <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
                         <p>
                             I'm a passionate hardcore gamer who loves playing almost every type of video game (except horror games like <i>Phasmophobia</i>). I started playing video games at the age of 4. 
-                            <i>Warcraft 3</i> and <i>Command & Conquer: Red Alert 2</i> were my first games. When I was in middle school, I was shocked by the incredibly realistic graphics (at that time) of <i>Crysis 2</i>, 
-                            and it sparked my desire to pursue a career in computer graphics.
+                            <i>Warcraft 3</i> and <i>Command & Conquer: Red Alert 2</i> were my first games. When I was in middle school, I was shocked by the incredibly realistic graphics of <i>Crysis 2</i> and <i>Battlefield 3</i>. They sparked my desire to pursue a career in computer graphics.
                         </p>
                         <p>
                             I'm good at FPS esports games. In <i>Apex Legends</i>, I reached the highest rank, Apex Predator (temporarily achieved the highest ranking of #74); in <i>Valorant</i>, I've solo queued to Diamond; and in <i>Overwatch</i>, I'm a multi-season Master. 
                         </p>
                         <p>
                             Besides esports games, I enjoy narrative-driven games with good storylines, such as <i>Red Dead Redemption 2</i> and <i>Baldur's Gate 3</i>, and ARPG games like <i>Bloodborne</i> and <i>Elden Ring</i>. I also enjoy some lightweight rogue-like (or rogue-lite) games.
-                            My favorite game this year is <i>Clair Obscur: Expedition 33</i> , and I believe this game will win the TGA's Game of the Year award.
+                            My favorite game this year is <i><a href="https://www.expedition33.com/" target="_blank">Clair Obscur: Expedition 33</a></i> , and I believe this game will win the TGA's Game of the Year award.
                         </p>
                         <p>
                             This love for gaming is what inspired me to choose rendering as my research area. I hope that one day, my research outcome can be widely applied in the video game industry to create the next generation of game graphics.
@@ -218,22 +226,6 @@
                 dark
                 shift
         >
-<!--            <v-btn @click="gameZone = true">-->
-<!--                <span>Game Zone</span>-->
-
-<!--                <v-icon>mdi-television-play</v-icon>-->
-<!--            </v-btn>-->
-
-            <!-- <v-btn>
-                <span></span>
-
-                <v-icon>mdi-book</v-icon>
-            </v-btn> -->
-
-<!--            <v-btn>-->
-<!--                <span>CV</span>-->
-<!--                <v-icon>mdi-image</v-icon>-->
-<!--            </v-btn>-->
         </v-bottom-navigation>
     </v-app>
 </div>
@@ -247,13 +239,16 @@
         vuetify: new Vuetify(),
         data: {
             value: 1,
+            itemsToShow: 3,
+            showFullText: [],
+            moreNews: false,
             researchInterest:"Achieving a highly realistic appearance is typically difficult in real-time rendering. My research mainly focuses on leveraging highly lightweight neural networks to efficiently represent complex appearances at real-time performance and also explores unique features (e.g., material synthesis) that are unachievable with traditional methods. ",
             news:[
-                {date:'05/2025',context:'Our paper is accepted to SIGGRAPH 2025, and some of our video clips are selected to be in the Technical Papers Video Trailer! '},
+                {date:'05/2025',context:'Our paper is accepted to SIGGRAPH 2025, and some clips from our video were selected to be part of the Technical Papers Video Trailer! '},
                 {date:'12/2024',context:'I will be a research scientist intern at Meta next summer.'},
                 {date:'09/2024',context:'I finish my summer internship at Autodesk.'},
-                {date:'08/2024', context:'I get one more SIGGRAPH Asia paper accepted!'},
-                // {date:'07/2024',context:'I reach Apex Predator in Apex Legends!'},
+                {date:'08/2024', context:'I got one more SIGGRAPH Asia paper accepted!'},
+                {date:'07/2024',context:'I reach Apex Predator (the highest rank) in Apex Legends!'},
             ],
             selfIntroduction:
                 'Hello! I\'m Zilin, I received my Bachelor and Master degree from Shandong University. \n' +
@@ -275,8 +270,6 @@
                     links:[
                         {text: 'Paper (Coming soon)', link:''},
                         {text: 'Project Page (Coming soon)',  link:''}
-                        // {text: 'Paper', link:'https://zheng95z.github.io/assets/files/egsr2023-roma.pdf'},
-                        // {text: 'Project Page',  link:'https://zheng95z.github.io/publications/roma23'}
                     ]
                 },
                 {
@@ -289,12 +282,9 @@
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
                     publication:'SIGGRAPH ASIA 2024',
                     teaser:'images/teaser_siga24.png',
-                    // teaser:'sigas2024/img/representative.jpg',
                     links:[
                         {text: 'Paper', link:'https://sites.cs.ucsb.edu/~lingqi/publications/paper_dynbtfsyn.pdf'},
                         {text: 'Project Page',  link:'sigas2024/index.html'}
-                        // {text: 'Paper', link:'https://zheng95z.github.io/assets/files/egsr2023-roma.pdf'},
-                        // {text: 'Project Page',  link:'https://zheng95z.github.io/publications/roma23'}
                     ]
                 },
                 {
@@ -360,7 +350,7 @@
                         ' <a href="http://miloshasan.net/" target="_blank">Miloš Hašan</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
                     publication:'ACM Transactions on Graphics (Proceedings of SIGGRAPH 2021)',
-                    teaser:'images/complexluminaires.jpg',
+                    teaser:'images/teaser_sig21.png',
                     links:[
                         {text: 'Paper', link:'http://sites.cs.ucsb.edu/~lingqi/publications/paper_complum.pdf'},
                         {text: 'Video', link:'http://sites.cs.ucsb.edu/~lingqi/publications/video_complum.mp4'}
@@ -442,8 +432,18 @@
             ]
 
         },
+        created() {
+            // Initialize the showFullText array with false for each paragraph
+            this.showFullText = this.publications.map(() => false);
+        },
         methods:{
-
+            toggleText(index) {
+                this.$set(this.showFullText, index, !this.showFullText[index]);
+            },
+            toggleNews() {
+                this.itemsToShow = this.moreNews ? 3 : this.news.length;
+                this.moreNews = !this.moreNews;
+            },
         },
         computed: {
             color () {
@@ -455,18 +455,44 @@
                     default: return 'blue-grey'
                 }
             },
+            headerClass() {
+                if (this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.xs) {
+                    return 'header-small';
+                } else {
+                    return 'header-medium';
+                }
+            },
         },
     })
 
 </script>
 <style>
-    .header-img{
+    .header-medium{
         width: 100%;
         height: 100%;
         min-height: 10%;
         background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/header.jpg);
         background-repeat:no-repeat;background-size:cover;
     }
+    .header-small{
+        width: 100%;
+        height: 100%;
+        min-height: 5%;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/header.jpg);
+        background-repeat:no-repeat;background-size:cover;
+    }
 
+
+    .truncate {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .custom-btn {
+        /* padding: 10px 20px;  */
+        margin-top: -10px;
+    }
 </style>
 </html>
