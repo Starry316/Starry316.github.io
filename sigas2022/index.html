@@ -91,23 +91,21 @@
           </video>
         </v-row>
 
-
-        <!--  Bibtex -->
-        <v-row justify="left" class="mt-8">
-          <v-col class="col-12 text-left">
-            <v-sheet tile>
-              <div class="text-h4 text-left"> Bibtex</div>
-            </v-sheet>
-          </v-col>
-        </v-row>
-
-        <pre id=bibtex class="text-left">
-                    <span style="font-family: sans-serif">
+          <!-- Bibtex-->
+          <v-row justify="left" class="mt-8">
+            <v-col class="col-12 text-left">
+              <v-sheet tile>
+                <div class="text-h4 text-left"> Bibtex</div>
+              </v-sheet>
+            </v-col>
+          </v-row>
+          <div class="bibtex-block text-left">
+            <pre><code>
 {{bibtex}}
-                    </span>
-                </pre>
-      </v-col>
-    </v-row>
+            </code></pre>
+          </div>
+        </v-col>
+      </v-row>
 
     <!--  footer  -->
     <v-footer color=indigo padless>
@@ -154,14 +152,25 @@
         {name:'Ling-Qi Yan', sup:'2', link:'https://sites.cs.ucsb.edu/~lingqi/'},
       ],
       institutions:[{sup:'1', name:'Shandong University'}, {sup:'2', name:'University of California, Santa Barbara'}, {sup:'3', name:'NVIDIA'}],
-        bibtex:
-            '@article{xu:2022:nnbasis,\n' +
-            '    title={Lightweight Neural Basis Functions for All-Frequency Shading},\n' +
-            '    author={Zilin, Xu and Zheng, Zeng and Lifan, Wu and Lu, Wang and Ling-Qi, Yan},\n' +
-            '    booktitle={Proceedings of SIGGRAPH Asia 2022},\n' +
-            '    year={2022}\n' +
-            '}'
+      bibtex:
+      '@inproceedings{10.1145/3550469.3555386,\n' +
+      'author = {Xu, Zilin and Zeng, Zheng and Wu, Lifan and Wang, Lu and Yan, Ling-Qi},\n' +
+      'title = {Lightweight Neural Basis Functions for All-Frequency Shading},\n' +
+      'year = {2022},\n' +
+      'isbn = {9781450394703},\n' +
+      'publisher = {Association for Computing Machinery},\n' +
+      'address = {New York, NY, USA},\n' +
+      'url = {https://doi.org/10.1145/3550469.3555386},\n' +
+      'doi = {10.1145/3550469.3555386},\n' +
+      'booktitle = {SIGGRAPH Asia 2022 Conference Papers},\n' +
+      'articleno = {14},\n' +
+      'numpages = {9},\n' +
+      'keywords = {all-frequency, basis function, neural rendering},\n' +
+      'location = {Daegu, Republic of Korea},\n' +
+      'series = {SA \'22}\n' +
+      '}',
     },
+
     methods:{
       test(){
         console.log("1234");
@@ -176,4 +185,17 @@
   })
 
 </script>
+<style>
+  .bibtex-block {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    padding: 1rem;
+    border-radius: 12px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+
 </html>

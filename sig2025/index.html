@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>A Dynamic By-example BTF Synthesis Scheme</title>
+  <title>Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at
+    Instant Inference Speed</title>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
   <link href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" rel="stylesheet">
@@ -42,20 +43,15 @@
                 <sup>{{item.sup}}</sup>{{item.name}}
               </span>
             </v-col>
-            <!-- <v-col :cols="12">
-                            <span>
-                                <sup>*</sup>Corresponding author
-                            </span>
-          </v-col> -->
-            <!-- <v-img max-width="100%" class="mt-2"
-                 :src="teaserPath">
-          </v-img> -->
+            <v-img max-width="100%" class="mt-2"
+            :src="teaserPath">
+            </v-img>
 
-            <div class="text-center image-compare " id="image-compare_1">
+            <!-- <div class="text-center image-compare " id="image-compare_1">
               <img src="img/comp2_1.png" alt="" />
               <img src="img/comp2_2.png" alt="" />
-            </div>
-          </v-row>
+            </div>-->
+          </v-row> 
 
 
 
@@ -103,7 +99,7 @@
             </video>
           </v-row>
 
-          <!--  More Results -->
+           <!-- More Results
           <v-row justify="left" class="mt-8">
             <v-col class="col-12 text-left">
               <div class="text-h4"> More Results</div>
@@ -124,7 +120,7 @@
               </div>
             </v-col>
 
-          </v-row>
+          </v-row> -->
 
           <!-- Bibtex-->
           <v-row justify="left" class="mt-8">
@@ -140,6 +136,7 @@
             </code></pre>
           </div>
         </v-col>
+
       </v-row>
 
       <!--  footer  -->
@@ -161,36 +158,44 @@
     el: '#app',
     vuetify: new Vuetify(),
     data: {
-      title: 'A Dynamic By-example BTF Synthesis Scheme',
-      publisher: 'SIGGRAPH ASIA 2024',
-      // teaserPath:'img/representative.jpg',
-      teaserPath: 'img/comparison.jpg',
+      title: 'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
+      publisher: 'SIGGRAPH 2025',
+      teaserPath:'img/representative.png',
+      // teaserPath: 'img/re.jpg',
       paperPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/paper_dynbtfsyn.pdf',
       supplementalPath: 'http://sites.cs.ucsb.edu/~lingqi/publications/supp_dynbtfsyn.zip',
       videoPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/video_dynbtfsyn.mp4',
-      abstract: 'Measured Bidirectional Texture Function (BTF) can faithfully reproduce a realistic appearance but is costly to acquire and store due to its 6D nature (2D spatial and 4D angular). Therefore, it is practical and necessary for rendering to synthesize BTFs from a small example patch. While previous methods managed to produce plausible results, we find that they seldomly take into consideration the property of being dynamic, so a BTF must be synthesized before the rendering process, resulting in limited size, costly pre-generation and storage issues. In this paper, we propose a dynamic BTF synthesis scheme, where a BTF at any position only needs to be synthesized when being queried. Our insight is that, with the recent advances in neural dimension reduction methods, a BTF can be decomposed into disjoint low-dimensional components. We can perform dynamic synthesis only on the positional dimensions, and during rendering, recover the BTF by querying and combining these low-dimensional functions with the help of a lightweight Multilayer Perceptron (MLP). Consequently, we obtain a fully dynamic 6D BTF synthesis scheme that does not require any pre-generation, which enables efficient rendering of our infinitely large and non-repetitive BTFs on the fly. We demonstrate the effectiveness of our method through various types of BTFs taken from UBO2014.',
+      abstract: 'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette}, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette) through a dynamic two-step displacement tracing technique.',
       authors: [
         { name: 'Zilin Xu', sup: '1', link: 'https://starry316.github.io/' },
-        { name: 'Zahra Montazeri', sup: '2', link: 'https://research.manchester.ac.uk/en/persons/zahra.montazeri/' },
-        { name: 'Beibei Wang', sup: '3', link: 'https://wangningbei.github.io/' },
+        { name: 'Xiang Chen', sup: '2', link: 'https://chenxiang0810.github.io/' },
+        { name: 'Chen Liu', sup: '3', link: '' },
+        { name: 'Beibei Wang', sup: '4', link: 'https://wangningbei.github.io/' },
+        { name: 'Lu Wang', sup: '2', link: 'https://wanglusdu.github.io/' },
+        { name: 'Zahra Montazeri', sup: '5', link: 'https://research.manchester.ac.uk/en/persons/zahra.montazeri/' },
         { name: 'Ling-Qi Yan', sup: '1', link: 'https://sites.cs.ucsb.edu/~lingqi/' },
       ],
-      institutions: [{ sup: '1', name: 'University of California, Santa Barbara' }, { sup: '2', name: 'University of Manchester' }, { sup: '3', name: 'Nanjing University' }],
-      bibtex: '@inproceedings{10.1145/3680528.3687578,\n' +
-        '     author = {Xu, Zilin and Montazeri, Zahra and Wang, Beibei and Yan, Ling-Qi},\n' +
-        '     title = {A Dynamic By-example BTF Synthesis Scheme},\n' +
-        '     year = {2024},\n' +
-        '     isbn = {9798400711312},\n' +
+      institutions: [
+        { sup: '1', name: 'University of California, Santa Barbara' },
+        { sup: '2', name: 'Shandong University' },
+        { sup: '3', name: 'Zhejiang Lingdi Digital Technology Co.,Ltd' },
+        { sup: '4', name: 'University of Manchester' },
+        { sup: '5', name: 'Nanjing University' }],
+      bibtex: '@inproceedings{10.1145/3721238.3730626,\n' +
+        '     author = {Xu, Zilin and Chen, Xiang and Liu, Chen and Wang, Beibei and Wang, Lu and Montazeri, Zahra and Yan, Ling-Qi},\n' +
+        '     title = {Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed},\n' +
+        '     year = {2025},\n' +
+        '     isbn = {9798400715402},\n' +
         '     publisher = {Association for Computing Machinery},\n' +
         '     address = {New York, NY, USA},\n' +
-        '     url = {https://doi.org/10.1145/3680528.3687578},\n' +
-        '     doi = {10.1145/3680528.3687578},\n' +
-        '     booktitle = {SIGGRAPH Asia 2024 Conference Papers},\n' +
-        '     articleno = {132},\n' +
-        '     numpages = {10},\n' +
-        '     keywords = {Rendering, Appearance, BTF, By-example},\n' +
-        '     location = {Tokyo, Japan},\n' +
-        '     series = {SA \'24},\n' +
+        '     url = {https://doi.org/10.1145/3721238.3730626},\n' +
+        '     doi = {10.1145/3721238.3730626},\n' +
+        '     booktitle = {SIGGRAPH 2025 Conference Papers},\n' +
+        // '     articleno = {132},\n' +
+        // '     numpages = {10},\n' +
+        // '     keywords = {Rendering, Appearance, BTF, By-example},\n' +
+        // '     location = {Tokyo, Japan},\n' +
+        // '     series = {SA \'24},\n' +
         '}'
     },
     methods: {
@@ -261,5 +266,4 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 </style>
-
 </html>
