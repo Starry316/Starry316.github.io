@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Zilin Xu's Personal Page</title>
@@ -13,75 +14,101 @@
 
 
 <body>
-<div id="app">
-    <v-app>
-        <div :class="headerClass">
-        </div>
-        <v-container >
-        <v-row justify="center">
-            <!--  Left column -->
-            <v-col class="py-4 text-center" :xl="4" :lg="4" :md="4" :sm="12" :xs="12">
-                <!--  Self introduction -->
-                <v-row justify="center" style="margin-top: -3em">
-                    <v-avatar size="192" >
-                        <img src="images/avatar3.jpg">
-                    </v-avatar>
-                </v-row>
-                <br><br>
-                <v-row justify="center" >
-                    <h2>徐 子 林</h2>
-                </v-row>
-                <v-row justify="center" >
-                    <h2>Zilin Xu</h2>
-                </v-row>
-                <v-row justify="center" >
-                    <h4>Pronounced as Tzu Lim Hsu</h4>
-                </v-row>
-                <v-row justify="center" >
-                    University of California, Santa Barbara
-                </v-row>
-                <v-row justify="center" >
-                    zilinxu@ucsb.edu
-                </v-row>
-                <v-row justify="center" >
-                    <a href="cv/cv.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[May 2025]
-                </v-row>
-                <!--  Self introduction end -->
-            </v-col>
-            <!--  Left column end -->
-
-            <!--  Right column -->
-            <v-col class="py-4" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
-                <v-row justify="left" >
-                    <v-col class="pr-3" :xl="6" :lg="6" :md="6" :sm="12" :xs="12" >
-                        <!--  About me -->
-                        <v-row justify="left" >
-                            <div class="text-h4 mt-4">About Me</div>
+    <div id="app">
+        <v-app>
+            <div :class="headerClass">
+            </div>
+            <v-container>
+                <v-row justify="center">
+                    <!--  Left column -->
+                    <v-col class="py-4 text-center" :xl="4" :lg="4" :md="4" :sm="12" :xs="12">
+                        <!--  Self introduction -->
+                        <v-row justify="center" style="margin-top: -3em">
+                            <v-avatar size="192">
+                                <img src="images/avatar3.jpg">
+                            </v-avatar>
                         </v-row>
-                        <v-row justify="left" >
-                            <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
-                                <p v-html="selfIntroduction"></p>
+                        <br><br>
+                        <v-row justify="center">
+                            <h2>徐 子 林</h2>
+                        </v-row>
+                        <v-row justify="center">
+                            <h2>Zilin Xu</h2>
+                        </v-row>
+                        <v-row justify="center">
+                            <h4>Pronounced as Tzu Lim Hsu</h4>
+                        </v-row>
+                        <v-row justify="center">
+                            University of California, Santa Barbara
+                        </v-row>
+                        <v-row justify="center">
+                            zilinxu@ucsb.edu
+                        </v-row>
+                        <v-row justify="center">
+                            <a href="cv/cv.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[May 2025]
+                        </v-row>
+                        
+                        <v-row justify="center" align="center" class="mt-2" >
+                            <v-col cols="auto">
+                                <v-img max-width="100px"  src="images/meta.jpg">
+                                </v-img>
                             </v-col>
+                            <v-col cols="auto">
+                                <v-img max-width="100px" src="images/autodesk.jpg">
+                                </v-img>
+                            </v-col>
+                            <v-col cols="auto">
+                                <v-img max-width="100px" src="images/ucsb.jpg">
+                                </v-img>
+                            </v-col>
+                            <v-col cols="auto">
+                                <v-img max-width="100px" src="images/sdu.jpg">
+                                </v-img>
+                            </v-col>
+                         
                         </v-row>
-                        <!--  About me end -->
-  
+                        <!--            
+                <v-img width="100%" class="mt-2"
+                    src="images/meta.jpg">
+                </v-img>
+                </v-img>
+                <v-img width="100%" class="mt-2"
+                    src="images/UC-Santa-Barbara-seal-2 Color RGB.png">
+                </v-img> -->
+                        <!--  Self introduction end -->
                     </v-col>
-                    <v-divider
-                            vertical
-                    ></v-divider>
-                    <v-col class="pl-6" :xl="6" :lg="6" :md="6" :sm="12" :xs="12" >
-                        <!--  News -->
-                        <v-row justify="left" >
-                            <div class="text-h4 mt-4">News</div>
-                        </v-row>
-                        <div v-for="(item, index) in news.slice(0, itemsToShow)" :key="index">
-                            <!-- <v-row justify="left" v-if="item.img == null"> -->
-                            <v-row justify="left">
-                                <v-col class="col-12">
-                                    <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
-                                </v-col>
-                            </v-row>
-                            <!-- <v-row justify="left"  v-if="item.img != null">
+                    <!--  Left column end -->
+
+                    <!--  Right column -->
+                    <v-col class="py-4" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
+                        <v-row justify="left">
+                            <v-col class="pr-3" :xl="6" :lg="6" :md="6" :sm="12" :xs="12">
+                                <!--  About me -->
+                                <v-row justify="left">
+                                    <div class="text-h4 mt-4">About Me</div>
+                                </v-row>
+                                <v-row justify="left">
+                                    <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
+                                        <p v-html="selfIntroduction"></p>
+                                    </v-col>
+                                </v-row>
+                                <!--  About me end -->
+
+                            </v-col>
+                            <v-divider vertical></v-divider>
+                            <v-col class="pl-6" :xl="6" :lg="6" :md="6" :sm="12" :xs="12">
+                                <!--  News -->
+                                <v-row justify="left">
+                                    <div class="text-h4 mt-4">News</div>
+                                </v-row>
+                                <div v-for="(item, index) in news.slice(0, itemsToShow)" :key="index">
+                                    <!-- <v-row justify="left" v-if="item.img == null"> -->
+                                    <v-row justify="left">
+                                        <v-col class="col-12">
+                                            <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
+                                        </v-col>
+                                    </v-row>
+                                    <!-- <v-row justify="left"  v-if="item.img != null">
                                 <v-col class="col-8">
                                     <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
                                 </v-col>
@@ -92,143 +119,150 @@
                                     </v-img>
                                 </v-col>
                             </v-row> -->
-                        </div>
-                        <v-btn plain small @click="toggleNews" >
-                            {{ moreNews ? 'Less' : 'More' }}
-                        </v-btn>
-                        <!--  News end -->
-                    </v-col>
-                </v-row>
-
-                      
-                <!--  Research Interest-->
-                <v-row justify="left" >
-                    <div class="text-h4 mt-4">Research Interests</div>
-                </v-row>
-                <v-row justify="left" >
-                    <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
-                        <p v-html="researchInterest"></p>
-                    </v-col>
-                </v-row>
-                <!--  Research Interest end -->
+                                </div>
+                                <v-btn plain small @click="toggleNews">
+                                    {{ moreNews ? 'Less' : 'More' }}
+                                </v-btn>
+                                <!--  News end -->
+                            </v-col>
+                        </v-row>
 
 
-                <!--  Publications -->
-                <v-row justify="left" >
-                    <div class="text-h4 mt-4">Selected Publications</div>
-                </v-row>
-                <v-row justify="left" v-for="(item, index) in publications" >
-                    <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
-                        <v-img width="100%" class="mt-2"
-                               :src="item.teaser">
-                        </v-img>
+                        <!--  Research Interest-->
+                        <v-row justify="left">
+                            <div class="text-h4 mt-4">Research Interests</div>
+                        </v-row>
+                        <v-row justify="left">
+                            <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
+                                <p v-html="researchInterest"></p>
+                            </v-col>
+                        </v-row>
+                        <!--  Research Interest end -->
+
+
+                        <!--  Publications -->
+                        <v-row justify="left">
+                            <div class="text-h4 mt-4">Selected Publications</div>
+                        </v-row>
+                        <v-row justify="left" v-for="(item, index) in publications">
+                            <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
+                                <v-img width="100%" class="mt-2" :src="item.teaser">
+                                </v-img>
+                            </v-col>
+                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+                                <b>{{item.title}}</b>
+                                <br>
+                                <span v-html="item.authors"></span>
+                                <br>
+                                <i>{{item.publication}}</i>
+                                <br>
+                                <span class="mr-2" v-for="linksItem in item.links">
+                                    <a :href="linksItem.link" target="_blank">{{linksItem.text}}</a>
+                                </span>
+                                <br>
+                                <p :class="{'truncate': !showFullText[index]}">
+                                    {{item.abstract}}
+                                </p>
+                                <v-btn plain small @click="toggleText(index)" class="custom-btn">
+                                    {{ showFullText[index] ? 'Less' : 'More' }}
+                                </v-btn>
+                                <v-divider></v-divider>
+                            </v-col>
+                        </v-row>
+                        <!--  Publications end -->
+                        <!--  Projects -->
+                        <v-row justify="left">
+                            <div class="text-h4 mt-4">Selected Projects</div>
+                        </v-row>
+                        <v-row justify="left" v-for="item in projects">
+                            <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
+                                <v-img width="100%" class="mt-2" :src="item.teaser">
+                                </v-img>
+                            </v-col>
+                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+                                <b>{{item.title}}</b>
+                                <br>
+                                {{item.date}}
+                                <br>
+                                <span class="mr-2" v-for="linksItem in item.links">
+                                    <a :href="linksItem.link" target="_blank">{{linksItem.text}}</a>
+                                </span>
+                                <br>
+                                <p>
+                                    {{item.discription}}
+                                </p>
+                                <v-divider></v-divider>
+                            </v-col>
+                        </v-row>
+                        <!--  Projects end -->
+                        <!--  Others -->
+                        <v-row justify="left">
+                            <div class="text-h4 mt-4">Other Publications</div>
+                        </v-row>
+                        <v-row justify="left" v-for="item in others">
+                            <v-col xl="12" lg="12" md="12" sm="12" xs="12">
+                                <b>{{item.title}}</b>
+                                <br>
+                                <span v-html="item.authors"></span>
+                                <br>
+                                <i>{{item.publication}}</i>
+                                <br><br>
+                            </v-col>
+                        </v-row>
+                        <!-- <v-divider></v-divider> -->
+                        <!--  Others end -->
+                        <v-row justify="left">
+                            <div class="text-h4 mt-4">Misc.</div>
+                        </v-row>
+                        <v-row justify="left">
+                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
+                                <p>
+                                    I'm a passionate hardcore gamer who loves playing almost every type of video game
+                                    (except horror games like <i>Phasmophobia</i>). I started playing video games at the
+                                    age of 4.
+                                    <i>Warcraft 3</i> and <i>Command & Conquer: Red Alert 2</i> were my first games.
+                                    When I was in middle school, I was shocked by the incredibly realistic graphics of
+                                    <i>Crysis 2</i> and <i>Battlefield 3</i>. They sparked my desire to pursue a career
+                                    in computer graphics.
+                                </p>
+                                <p>
+                                    I'm good at FPS esports games. In <i>Apex Legends</i>, I reached the highest rank,
+                                    Apex Predator (temporarily achieved the highest ranking of #74); in <i>Valorant</i>,
+                                    I've solo queued to Diamond; and in <i>Overwatch</i>, I'm a multi-season Master.
+                                </p>
+                                <p>
+                                    Besides esports games, I enjoy narrative-driven games with good storylines, such as
+                                    <i>Red Dead Redemption 2</i> and <i>Baldur's Gate 3</i>, and ARPG games like
+                                    <i>Bloodborne</i> and <i>Elden Ring</i>. I also enjoy some lightweight rogue-like
+                                    (or rogue-lite) games.
+                                    My favorite game this year is <i><a href="https://www.expedition33.com/"
+                                            target="_blank">Clair Obscur: Expedition 33</a></i> , and I believe this
+                                    game will win the TGA's Game of the Year award.
+                                </p>
+                                <p>
+                                    This love for gaming is what inspired me to choose rendering as my research area. I
+                                    hope that one day, my research outcome can be widely applied in the video game
+                                    industry to create the next generation of game graphics.
+                                </p>
+                            </v-col>
+                            <v-col xl="4" lg="4" md="4" sm="12" xs="12">
+                                <v-img width="80%" class="mt-2" src="images/apex.png" />
+                            </v-col>
+                        </v-row>
                     </v-col>
-                    <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
-                        <b>{{item.title}}</b>
-                        <br>
-                        <span v-html="item.authors"></span>
-                        <br>
-                        <i>{{item.publication}}</i>
-                        <br>
-                        <span class="mr-2" v-for="linksItem in item.links">
-                            <a :href="linksItem.link" target="_blank">{{linksItem.text}}</a>
-                        </span>
-                        <br>
-                        <p :class="{'truncate': !showFullText[index]}">
-                            {{item.abstract}}
-                        </p>
-                        <v-btn plain small @click="toggleText(index)" class="custom-btn">
-                            {{ showFullText[index] ? 'Less' : 'More' }}
-                        </v-btn>
-                        <v-divider></v-divider>
-                    </v-col>
+                    <!--  Right column end -->
                 </v-row>
-                <!--  Publications end -->
-                <!--  Projects -->
-                <v-row justify="left" >
-                    <div class="text-h4 mt-4">Selected Projects</div>
-                </v-row>
-                <v-row justify="left" v-for="item in projects" >
-                    <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
-                        <v-img width="100%" class="mt-2"
-                               :src="item.teaser">
-                        </v-img>
-                    </v-col>
-                    <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
-                        <b>{{item.title}}</b>
-                        <br>
-                        {{item.date}}
-                        <br>
-                        <span class="mr-2" v-for="linksItem in item.links">
-                            <a :href="linksItem.link" target="_blank">{{linksItem.text}}</a>
-                        </span>
-                        <br>
-                        <p>
-                            {{item.discription}}
-                        </p>
-                        <v-divider></v-divider>
-                    </v-col>
-                </v-row>
-                <!--  Projects end -->
-                <!--  Others -->
-                <v-row justify="left" >
-                    <div class="text-h4 mt-4">Other Publications</div>
-                </v-row>
-                <v-row justify="left" v-for="item in others" >
-                    <v-col xl="12" lg="12" md="12" sm="12" xs="12">
-                        <b>{{item.title}}</b>
-                        <br>
-                        <span v-html="item.authors"></span>
-                        <br>
-                        <i>{{item.publication}}</i>
-                        <br><br>
-                    </v-col>
-                </v-row>
-                <!-- <v-divider></v-divider> -->
-                <!--  Others end -->
-                <v-row justify="left">
-                    <div class="text-h4 mt-4">Misc.</div>
-                </v-row>
-                <v-row justify="left">
-                    <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
-                        <p>
-                            I'm a passionate hardcore gamer who loves playing almost every type of video game (except horror games like <i>Phasmophobia</i>). I started playing video games at the age of 4. 
-                            <i>Warcraft 3</i> and <i>Command & Conquer: Red Alert 2</i> were my first games. When I was in middle school, I was shocked by the incredibly realistic graphics of <i>Crysis 2</i> and <i>Battlefield 3</i>. They sparked my desire to pursue a career in computer graphics.
-                        </p>
-                        <p>
-                            I'm good at FPS esports games. In <i>Apex Legends</i>, I reached the highest rank, Apex Predator (temporarily achieved the highest ranking of #74); in <i>Valorant</i>, I've solo queued to Diamond; and in <i>Overwatch</i>, I'm a multi-season Master. 
-                        </p>
-                        <p>
-                            Besides esports games, I enjoy narrative-driven games with good storylines, such as <i>Red Dead Redemption 2</i> and <i>Baldur's Gate 3</i>, and ARPG games like <i>Bloodborne</i> and <i>Elden Ring</i>. I also enjoy some lightweight rogue-like (or rogue-lite) games.
-                            My favorite game this year is <i><a href="https://www.expedition33.com/" target="_blank">Clair Obscur: Expedition 33</a></i> , and I believe this game will win the TGA's Game of the Year award.
-                        </p>
-                        <p>
-                            This love for gaming is what inspired me to choose rendering as my research area. I hope that one day, my research outcome can be widely applied in the video game industry to create the next generation of game graphics.
-                        </p>
-                    </v-col>
-                    <v-col xl="4" lg="4" md="4" sm="12" xs="12">
-                        <v-img width="80%" class="mt-2" src="images/apex.png"/>
-                    </v-col>
-                </v-row>
-            </v-col>
-            <!--  Right column end -->
-        </v-row>
-    
-    
-        </v-container>
+
+
+            </v-container>
 
 
 
-        <!--  footer  -->
-        <v-bottom-navigation
-                v-model="value"
-                :background-color="color"
-                dark
-                shift
-        >
-        </v-bottom-navigation>
-    </v-app>
-</div>
+            <!--  footer  -->
+            <v-bottom-navigation v-model="value" :background-color="color" dark shift>
+            </v-bottom-navigation>
+        </v-app>
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
@@ -242,92 +276,92 @@
             itemsToShow: 3,
             showFullText: [],
             moreNews: false,
-            researchInterest:"Realistic appearance is notoriously difficult to achieve in real-time rendering. My research focuses on leveraging neural techniques for efficient and accurate appearance representation, with a special emphasis on real-time performance. It also explores advanced features, such as dynamic appearance synthesis, that are challenging for traditional methods. ",
-            news:[
-                {date:'05/2025',context:'One paper accepted to SIGGRAPH 2025, and some video clips are featured in the Technical Papers Video Trailer! '},
-                {date:'12/2024',context:'I will be a research scientist intern at Meta next summer.'},
-                {date:'09/2024',context:'I finish my summer internship at Autodesk.'},
-                {date:'08/2024', context:'One paper accepted to SIGGRAPH Asia 2024!'},
-                {date:'07/2024',context:'I reach Apex Predator (the highest rank) in Apex Legends!'},
-                {date:'09/2022',context:'With the inestimable assistance of the <a href="http://sites.cs.ucsb.edu/~lingqi/">legendary chicken eater</a> and the marvelous <a href="https://poiw.github.io/">GingerPoi</a>, we hit Diamond in Apex Legends this season!'},
-                {date:'08/2022', context:'I got my first SIGGRAPH Asia paper!'}
+            researchInterest: "Realistic appearance is notoriously difficult to achieve in real-time rendering. My research focuses on leveraging neural techniques for efficient and accurate appearance representation, with a special emphasis on real-time performance. It also explores advanced features, such as dynamic appearance synthesis, that are challenging for traditional methods. ",
+            news: [
+                { date: '05/2025', context: 'One paper accepted to SIGGRAPH 2025, and some video clips are featured in the Technical Papers Video Trailer! ' },
+                { date: '12/2024', context: 'I will be a research scientist intern at Meta next summer.' },
+                { date: '09/2024', context: 'I finish my summer internship at Autodesk.' },
+                { date: '08/2024', context: 'One paper accepted to SIGGRAPH Asia 2024!' },
+                { date: '07/2024', context: 'I reach Apex Predator (the highest rank) in Apex Legends!' },
+                { date: '09/2022', context: 'With the inestimable assistance of the <a href="http://sites.cs.ucsb.edu/~lingqi/">legendary chicken eater</a> and the marvelous <a href="https://poiw.github.io/">GingerPoi</a>, we hit Diamond in Apex Legends this season!' },
+                { date: '08/2022', context: 'I got my first SIGGRAPH Asia paper!' }
             ],
             selfIntroduction:
                 'Hello! I\'m Zilin, I received my Bachelor and Master degree from Shandong University. \n' +
                 'Currently I\'m a second year PhD student at the University of California, Santa Barbara, supervised by Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
-            publications:[
+            publications: [
                 {
-                    title:'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
-                    abstract:'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette}, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette) through a dynamic two-step displacement tracing technique.\n',
+                    title: 'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
+                    abstract: 'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette}, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette) through a dynamic two-step displacement tracing technique.\n',
                     authors:
                         ' <b>Zilin Xu</b>,' +
-                        ' <a href="https://chenxiang0810.github.io/" target="_blank">Xiang Chen</a>,'+
-                        ' Chen Liu,'+
-                        ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>,'+
+                        ' <a href="https://chenxiang0810.github.io/" target="_blank">Xiang Chen</a>,' +
+                        ' Chen Liu,' +
+                        ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>,' +
                         ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
                         ' <a href="https://research.manchester.ac.uk/en/persons/zahra.montazeri" target="_blank">Zahra Montazeri</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
-                    publication:'SIGGRAPH 2025',
-                    teaser:'images/teaser_sig25.png',
-                    links:[
-                        {text: 'Paper (Coming soon)', link:''},
-                        {text: 'Project Page (WIP)',  link:'sig2025/index.html'}
+                    publication: 'SIGGRAPH 2025',
+                    teaser: 'images/teaser_sig25.png',
+                    links: [
+                        { text: 'Paper (Coming soon)', link: '' },
+                        { text: 'Project Page (WIP)', link: 'sig2025/index.html' }
                     ]
                 },
                 {
-                    title:'A Dynamic By-example BTF Synthesis Scheme',
-                    abstract:'Measured Bidirectional Texture Function (BTF) can faithfully reproduce a realistic appearance but is costly to acquire and store due to its 6D nature (2D spatial and 4D angular). Therefore, it is practical and necessary for rendering to synthesize BTFs from a small example patch. While previous methods managed to produce plausible results, we find that they seldomly take into consideration the property of being dynamic, so a BTF must be synthesized before the rendering process, resulting in limited size, costly pre-generation and storage issues. In this paper, we propose a dynamic BTF synthesis scheme, where a BTF at any position only needs to be synthesized when being queried. Our insight is that, with the recent advances in neural dimension reduction methods, a BTF can be decomposed into disjoint low-dimensional components. We can perform dynamic synthesis only on the positional dimensions, and during rendering, recover the BTF by querying and combining these low-dimensional functions with the help of a lightweight Multilayer Perceptron (MLP). Consequently, we obtain a fully dynamic 6D BTF synthesis scheme that does not require any pre-generation, which enables efficient rendering of our infinitely large and non-repetitive BTFs on the fly. We demonstrate the effectiveness of our method through various types of BTFs taken from UBO2014.\n',
+                    title: 'A Dynamic By-example BTF Synthesis Scheme',
+                    abstract: 'Measured Bidirectional Texture Function (BTF) can faithfully reproduce a realistic appearance but is costly to acquire and store due to its 6D nature (2D spatial and 4D angular). Therefore, it is practical and necessary for rendering to synthesize BTFs from a small example patch. While previous methods managed to produce plausible results, we find that they seldomly take into consideration the property of being dynamic, so a BTF must be synthesized before the rendering process, resulting in limited size, costly pre-generation and storage issues. In this paper, we propose a dynamic BTF synthesis scheme, where a BTF at any position only needs to be synthesized when being queried. Our insight is that, with the recent advances in neural dimension reduction methods, a BTF can be decomposed into disjoint low-dimensional components. We can perform dynamic synthesis only on the positional dimensions, and during rendering, recover the BTF by querying and combining these low-dimensional functions with the help of a lightweight Multilayer Perceptron (MLP). Consequently, we obtain a fully dynamic 6D BTF synthesis scheme that does not require any pre-generation, which enables efficient rendering of our infinitely large and non-repetitive BTFs on the fly. We demonstrate the effectiveness of our method through various types of BTFs taken from UBO2014.\n',
                     authors:
                         ' <b>Zilin Xu</b>,' +
                         ' <a href="https://research.manchester.ac.uk/en/persons/zahra.montazeri" target="_blank">Zahra Montazeri</a>,' +
-                        ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>,'+
+                        ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
-                    publication:'SIGGRAPH ASIA 2024',
-                    teaser:'images/teaser_siga24.png',
-                    links:[
-                        {text: 'Paper', link:'https://sites.cs.ucsb.edu/~lingqi/publications/paper_dynbtfsyn.pdf'},
-                        {text: 'Project Page',  link:'sigas2024/index.html'}
+                    publication: 'SIGGRAPH ASIA 2024',
+                    teaser: 'images/teaser_siga24.png',
+                    links: [
+                        { text: 'Paper', link: 'https://sites.cs.ucsb.edu/~lingqi/publications/paper_dynbtfsyn.pdf' },
+                        { text: 'Project Page', link: 'sigas2024/index.html' }
                     ]
                 },
                 {
-                    title:'Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing',
-                    abstract:'We present a new software ray tracing solution that efficiently computes visibilities in dynamic scenes. We first introduce a novel scene representation: ray-aligned occupancy map array (ROMA) that is generated by rasterizing the dynamic scene once per frame. Our key contribution is a fast and low-divergence tracing method computing visibilities in constant time, without constructing and traversing the traditional intersection acceleration data structures such as BVH. To further improve accuracy and reduce aliasing, we use a spatiotemporal scheme to stochastically distribute the candidate ray samples. We demonstrate the practicality of our method by integrating it into a modern real-time renderer and showing better performance compared to existing techniques based on distance fields (DFs). Our method is free of the typical artifacts caused by incomplete scene information, and is about 2.5x–10x faster than generating and tracing DFs at the same resolution and equal storage.\n',
-                    authors:'<a href="https://zheng95z.github.io/" target="_blank">Zheng Zeng</a>,' +
+                    title: 'Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing',
+                    abstract: 'We present a new software ray tracing solution that efficiently computes visibilities in dynamic scenes. We first introduce a novel scene representation: ray-aligned occupancy map array (ROMA) that is generated by rasterizing the dynamic scene once per frame. Our key contribution is a fast and low-divergence tracing method computing visibilities in constant time, without constructing and traversing the traditional intersection acceleration data structures such as BVH. To further improve accuracy and reduce aliasing, we use a spatiotemporal scheme to stochastically distribute the candidate ray samples. We demonstrate the practicality of our method by integrating it into a modern real-time renderer and showing better performance compared to existing techniques based on distance fields (DFs). Our method is free of the typical artifacts caused by incomplete scene information, and is about 2.5x–10x faster than generating and tracing DFs at the same resolution and equal storage.\n',
+                    authors: '<a href="https://zheng95z.github.io/" target="_blank">Zheng Zeng</a>,' +
                         ' <b>Zilin Xu</b>,' +
                         ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
                         ' <a href="https://winmad.github.io/">Lifan Wu</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
-                    publication:'Eurographics Symposium on Rendering 2023 (CGF track)',
-                    teaser:'images/roma23_teaser.png',
-                    links:[
-                        {text: 'Paper', link:'https://zheng95z.github.io/assets/files/egsr2023-roma.pdf'},
-                        {text: 'Project Page',  link:'https://zheng95z.github.io/publications/roma23'}
+                    publication: 'Eurographics Symposium on Rendering 2023 (CGF track)',
+                    teaser: 'images/roma23_teaser.png',
+                    links: [
+                        { text: 'Paper', link: 'https://zheng95z.github.io/assets/files/egsr2023-roma.pdf' },
+                        { text: 'Project Page', link: 'https://zheng95z.github.io/publications/roma23' }
                     ]
                 },
                 {
-                    title:'Lightweight Neural Basis Functions for All-Frequency Shading',
-                    abstract:'Basis functions provide both the abilities for compact representation and the properties for efficient computation.\n' +
+                    title: 'Lightweight Neural Basis Functions for All-Frequency Shading',
+                    abstract: 'Basis functions provide both the abilities for compact representation and the properties for efficient computation.\n' +
                         'Therefore, they are pervasively used in rendering to perform all-frequency shading.\n' +
                         'However, common basis functions, including spherical harmonics (SH), wavelets, and spherical Gaussians (SG) all have their own limitations, such as low-frequency for SH, not rotationally invariant for wavelets, and no multiple product support for SG. \n' +
                         'In this paper, we present neural basis functions, an implicit and data-driven set of basis functions that circumvents the limitations with all desired properties. \n' +
                         'We first introduce a representation neural network that takes any general 2D spherical function (e.g. environment lighting, BRDF, and visibility) as input and projects it onto the latent space as coefficients of our neural basis functions.\n' +
                         'Then, we design several lightweight neural networks that perform different types of computation, giving our basis functions different computational properties such as double/triple product integrals and rotations. \n' +
                         'We demonstrate the practicality of our neural basis functions by integrating them into all-frequency shading applications, showing that our method not only achieves a compression rate of 0.39% and 10×-40× better performance than wavelets at equal quality, but also renders all-frequency lighting effects in real-time without the aforementioned limitations from classic basis functions.',
-                    authors:'<b>Zilin Xu</b>,' +
+                    authors: '<b>Zilin Xu</b>,' +
                         ' <a href="https://zheng95z.github.io/" target="_blank">Zheng Zeng</a>,' +
                         ' <a href="https://winmad.github.io/">Lifan Wu</a>,' +
                         ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
-                    publication:'SIGGRAPH ASIA 2022',
-                    teaser:'sigas2022/img/representative.jpg',
-                    links:[
-                        {text: 'Paper', link:'http://sites.cs.ucsb.edu/~lingqi/publications/paper_neural_basis.pdf'},
-                        {text: 'Project Page',  link:'sigas2022/index.html'}
+                    publication: 'SIGGRAPH ASIA 2022',
+                    teaser: 'sigas2022/img/representative.jpg',
+                    links: [
+                        { text: 'Paper', link: 'http://sites.cs.ucsb.edu/~lingqi/publications/paper_neural_basis.pdf' },
+                        { text: 'Project Page', link: 'sigas2022/index.html' }
                     ]
                 },
                 {
-                    title:'Neural Complex Luminaires: Representation and Rendering',
-                    abstract:'Complex luminaires, such as grand chandeliers, can be extremely costly to render because ' +
+                    title: 'Neural Complex Luminaires: Representation and Rendering',
+                    abstract: 'Complex luminaires, such as grand chandeliers, can be extremely costly to render because ' +
                         'the light-emitting sources are typically encased in complex refractive geometry, creating difficult' +
                         ' light paths that require many samples to evaluate with Monte Carlo approaches. Previous work has' +
                         ' attempted to speed up this process, but the methods are either inaccurate, require the storage ' +
@@ -342,7 +376,7 @@
                         ' elements. We perform favorably relative to state-of-the-art approaches and render final images that are close' +
                         ' to the high-sample-count reference with only a fraction of the computation and storage costs, with no need' +
                         ' to store the original luminaire geometry and materials',
-                    authors:'<a href="http://junqiuzhu.com/" target="_blank">Junqiu Zhu</a>,' +
+                    authors: '<a href="http://junqiuzhu.com/" target="_blank">Junqiu Zhu</a>,' +
                         ' <a href="https://velysianp.wixsite.com/elysonbaipersonal" target="_blank">Yaoyi Bai</a>,' +
                         ' <b>Zilin Xu</b>,' +
                         ' <a href="https://web.ece.ucsb.edu/~sbako/" target="_blank">Steve Bako</a>,' +
@@ -351,16 +385,16 @@
                         ' <a href="https://web.ece.ucsb.edu/~psen/" target="_blank">Pradeep Sen</a>,' +
                         ' <a href="http://miloshasan.net/" target="_blank">Miloš Hašan</a>,' +
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
-                    publication:'ACM Transactions on Graphics (Proceedings of SIGGRAPH 2021)',
-                    teaser:'images/teaser_sig21.png',
-                    links:[
-                        {text: 'Paper', link:'http://sites.cs.ucsb.edu/~lingqi/publications/paper_complum.pdf'},
-                        {text: 'Video', link:'http://sites.cs.ucsb.edu/~lingqi/publications/video_complum.mp4'}
+                    publication: 'ACM Transactions on Graphics (Proceedings of SIGGRAPH 2021)',
+                    teaser: 'images/teaser_sig21.png',
+                    links: [
+                        { text: 'Paper', link: 'http://sites.cs.ucsb.edu/~lingqi/publications/paper_complum.pdf' },
+                        { text: 'Video', link: 'http://sites.cs.ucsb.edu/~lingqi/publications/video_complum.mp4' }
                     ]
                 },
                 {
-                    title:'Unsupervised Image Reconstruction for Gradient-Domain Volumetric Rendering',
-                    abstract:'Gradient-domain rendering can highly improve the convergence of light transport simulation using the smoothness in image space.' +
+                    title: 'Unsupervised Image Reconstruction for Gradient-Domain Volumetric Rendering',
+                    abstract: 'Gradient-domain rendering can highly improve the convergence of light transport simulation using the smoothness in image space.' +
                         ' These methods generate image gradients and solve an image reconstruction problem with rendered image and the gradient images. Recently,' +
                         ' a previous work proposed a gradient-domain volumetric photon density estimation for homogeneous participating media. However, ' +
                         'the image reconstruction relies on traditional L1 reconstruction, which leads to obvious artifacts when only a few rendering passes are performed.' +
@@ -370,44 +404,44 @@
                         'which includes volume based auxiliary features such as transmittance and photon density. Our network smooths the images on global scale and preserves the high ' +
                         'frequency details on a small scale. We demonstrate that our network produces a higher quality result, compared to previous work.' +
                         ' Although we only considered volumetric photon mapping, it’s straightforward to extend our method for other forms, like beam radiance estimation.\n',
-                    authors:'<b>Zilin Xu</b>,' +
+                    authors: '<b>Zilin Xu</b>,' +
                         ' Qiang Sun,' +
                         ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
                         ' <a href="http://vr.sdu.edu.cn/info/1010/1062.htm">Yanning Xu</a>,' +
                         ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>',
-                    publication:'Computer Graphics Forum (Proceedings of Pacific Graphics 2020)',
-                    teaser:'images/volgrad.jpg',
-                    links:[
-                        {text: 'Paper', link:'https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.14137'},
-                        {text: 'Project Page',  link:'pg2020/index.html'}
+                    publication: 'Computer Graphics Forum (Proceedings of Pacific Graphics 2020)',
+                    teaser: 'images/volgrad.jpg',
+                    links: [
+                        { text: 'Paper', link: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.14137' },
+                        { text: 'Project Page', link: 'pg2020/index.html' }
                     ]
                 }
             ],
-            projects:[
+            projects: [
                 {
-                    title:'Advanced 3D Wood Material in MaterialX',
-                    discription:'Implemented a procedural 3D wood material as a general compound node graph in MaterialX (an open-source project).'+
-                    'It is able to simulate many types of wood visual effects including growth rings, pores, wood rays, etc.\n',
-                    date:'Intern project at Autodesk, Summer 2024',
-                    teaser:'images/wood.png',
-                    links:[
-                        {text: 'Project Link', link:'https://github.com/autodesk-forks/MaterialX/tree/zilin/3dwood'},
+                    title: 'Advanced 3D Wood Material in MaterialX',
+                    discription: 'Implemented a procedural 3D wood material as a general compound node graph in MaterialX (an open-source project).' +
+                        'It is able to simulate many types of wood visual effects including growth rings, pores, wood rays, etc.\n',
+                    date: 'Intern project at Autodesk, Summer 2024',
+                    teaser: 'images/wood.png',
+                    links: [
+                        { text: 'Project Link', link: 'https://github.com/autodesk-forks/MaterialX/tree/zilin/3dwood' },
                     ]
                 },
                 {
-                    title:'By-example Texture Synthesis in MaterialX',
-                    discription:'Implemented a by-example texture synthesis node graph in MaterialX.\n',
-                    date:'Intern project at Autodesk, Summer 2024',
-                    teaser:'images/texture_syn.png',
-                    links:[
-                        {text: 'Project Link', link:'https://github.com/autodesk-forks/MaterialX/tree/zilin/3dwood'},
+                    title: 'By-example Texture Synthesis in MaterialX',
+                    discription: 'Implemented a by-example texture synthesis node graph in MaterialX.\n',
+                    date: 'Intern project at Autodesk, Summer 2024',
+                    teaser: 'images/texture_syn.png',
+                    links: [
+                        { text: 'Project Link', link: 'https://github.com/autodesk-forks/MaterialX/tree/zilin/3dwood' },
                     ]
                 },
             ],
-            others:[
+            others: [
                 {
-                    title:'State-of-the-Art Survey of Photorealistic Rendering Based on Machine Learning',
-                    abstract:'Nowadays, the demand for photo-realistic rendering in the movie, anime, game and other industries is increasing, ' +
+                    title: 'State-of-the-Art Survey of Photorealistic Rendering Based on Machine Learning',
+                    abstract: 'Nowadays, the demand for photo-realistic rendering in the movie, anime, game and other industries is increasing, ' +
                         'and the highly realistic rendering of 3D scenes usually requires a lot of calculation time and storage to calculate global ' +
                         'illumination. How to ensure the quality of rendering on the premise of improving drawing speed is still one of the core and' +
                         ' hot issues in the field of graphics. The data-driven machine learning method has opened up a new idea. In recent years,' +
@@ -420,7 +454,7 @@
                         ' and conducts comparative analysis on drawing quality, drawing time, network capabilities and other aspects. ' +
                         'Finally, this paper proposes possible ideas and future prospects for the combination of machine learning and realistic rendering.',
                     authors:
-                        'ZHAO Ye-Zi,'+
+                        'ZHAO Ye-Zi,' +
                         ' <a href="https://wanglusdu.github.io/" target="_blank">WANG Lu</a>,' +
                         ' <a href="http://vr.sdu.edu.cn/info/1010/1062.htm">XU Yan-Ning</a>,' +
                         ' <a href="https://zheng95z.github.io/">ZENG Zheng</a>,' +
@@ -429,7 +463,7 @@
                         ' <b>Xu Zi-Lin</b>,' +
                         ' <a href="http://vr.sdu.edu.cn/info/1010/1073.htm" target="_blank">MENG Xiang-Xu</a>',
 
-                    publication:'Journal of Software',
+                    publication: 'Journal of Software',
                 }
             ]
 
@@ -438,7 +472,7 @@
             // Initialize the showFullText array with false for each paragraph
             this.showFullText = this.publications.map(() => false);
         },
-        methods:{
+        methods: {
             toggleText(index) {
                 this.$set(this.showFullText, index, !this.showFullText[index]);
             },
@@ -448,7 +482,7 @@
             },
         },
         computed: {
-            color () {
+            color() {
                 switch (this.value) {
                     case 0: return 'indigo'
                     case 1: return 'blue-grey'
@@ -469,32 +503,37 @@
 
 </script>
 <style>
-    .header-medium{
+    .header-medium {
         width: 100%;
         height: 100%;
         min-height: 10%;
-        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/header.jpg);
-        background-repeat:no-repeat;background-size:cover;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(images/header.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
-    .header-small{
+
+    .header-small {
         width: 100%;
         height: 100%;
         min-height: 2%;
-        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1)), url(images/header.jpg);
-        background-repeat:no-repeat;background-size:cover;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(images/header.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
 
     .truncate {
         display: -webkit-box;
-        -webkit-line-clamp: 2; 
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .custom-btn {
         /* padding: 10px 20px;  */
         margin-top: -10px;
     }
 </style>
+
 </html>
