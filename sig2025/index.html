@@ -37,7 +37,6 @@
                 </span>
               </span>
             </v-col>
-
             <v-col :cols="12" class="mt-2">
               <span v-for="item in institutions" class="mr-4">
                 <sup>{{item.sup}}</sup>{{item.name}}
@@ -71,7 +70,7 @@
           </v-row>
 
           <!--  Download -->
-          <!-- <v-row justify="left" class="mt-8">
+          <v-row justify="left" class="mt-8">
             <v-col class="col-12 text-left">
               <div class="text-h4"> Download</div>
             </v-col>
@@ -79,16 +78,20 @@
           <v-row justify="left" class="mt-4">
             <div class="text-center pl-2">
               <v-btn color="light-blue darken-3" dark :href="paperPath" target="_blank"> PAPER
-                <v-icon class="ml-2 white--text">mdi-cloud-download</v-icon>
+                <v-icon class="ml-2 white--text">mdi-file-pdf</v-icon>
               </v-btn>
               <v-btn color="light-blue darken-3" dark :href="supplementalPath" target="_blank"> SUPPLEMENTARY
-                <v-icon class="ml-2 white--text">mdi-cloud-download</v-icon>
+                <v-icon class="ml-2 white--text">mdi-file-pdf</v-icon>
+              </v-btn>
+              <!-- <v-btn color="light-blue darken-3" dark href="https://github.com/Starry316/InstantNeuralMaterial/tree/main/Source/RenderPasses/NeuralMatRendering" target="_blank"> CODE (Coming Soon) -->
+              <v-btn color="light-blue darken-3" dark href="" target="_blank"> CODE (Coming Soon)
+                <v-icon class="ml-2 white--text">mdi-github-box</v-icon>
               </v-btn>
             </div>
-          </v-row> -->
+          </v-row>
 
           <!--  Video -->
-          <!-- <v-row justify="left" class="mt-8">
+          <v-row justify="left" class="mt-8">
             <v-col class="col-12 text-left">
               <div class="text-h4"> Video</div>
             </v-col>
@@ -97,30 +100,41 @@
             <video controls="" preload="metadata" align="center" width="100%" style="display:block;   width:100%;">
               <source :src="videoPath" type="video/mp4">
             </video>
-          </v-row> -->
+          </v-row>
 
-           <!-- More Results
+          <v-row justify="left" class="mt-8">
+            <v-col class="col-12 text-left">
+              <div class="text-h4"> Demo</div>
+            </v-col>
+          </v-row>
+          <v-row justify="left" class="mt-4">
+            <video controls="" preload="metadata" align="center" width="100%" style="display:block;   width:100%;">
+              <source src="https://sites.cs.ucsb.edu/~lingqi/publications/demo_sig25_cnm.mp4" type="video/mp4">
+            </video>
+          </v-row>
+
+           <!-- More Results-->
           <v-row justify="left" class="mt-8">
             <v-col class="col-12 text-left">
               <div class="text-h4"> More Results</div>
             </v-col>
           </v-row>
           <v-row class="mt-2 mb-4">
-            <v-col :cols="12">
+            <!-- <v-col :cols="12"> -->
+              <div class="text-center image-compare" id="image-compare_1">
+                <img src="img/hist.png" alt="" />
+                <img src="img/cacf.png" alt="" />
+              </div>
+            <!-- </v-col> -->
+
+           <v-col :cols="12">
               <div class="text-center image-compare" id="image-compare_2">
-                <img src="img/comp1_1.png" alt="" />
-                <img src="img/comp1_2.png" alt="" />
+                <img src="img/leather_tp.png" alt="" />
+                <img src="img/leather_all.png" alt="" />
               </div>
             </v-col>
 
-            <v-col :cols="12">
-              <div class="text-center image-compare" id="image-compare_2">
-                <img src="img/comp3_1.png" alt="" />
-                <img src="img/comp3_2.png" alt="" />
-              </div>
-            </v-col>
-
-          </v-row> -->
+          </v-row>
 
           <!-- Bibtex-->
           <v-row justify="left" class="mt-8">
@@ -158,14 +172,14 @@
     el: '#app',
     vuetify: new Vuetify(),
     data: {
-      title: '(WIP) Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
+      title: 'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
       publisher: 'SIGGRAPH 2025',
       teaserPath:'img/representative.png',
       // teaserPath: 'img/re.jpg',
-      paperPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/paper_dynbtfsyn.pdf',
-      supplementalPath: 'http://sites.cs.ucsb.edu/~lingqi/publications/supp_dynbtfsyn.zip',
-      videoPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/video_dynbtfsyn.mp4',
-      abstract: 'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette}, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette) through a dynamic two-step displacement tracing technique.',
+      paperPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/paper_sig25_cnm.pdf',
+      supplementalPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/supp_sig25_cnm.pdf',
+      videoPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/video_sig25_cnm.mp4',
+      abstract: 'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette) through a dynamic two-step displacement tracing technique.',
       authors: [
         { name: 'Zilin Xu', sup: '1', link: 'https://starry316.github.io/' },
         { name: 'Xiang Chen', sup: '2', link: 'https://chenxiang0810.github.io/' },
@@ -205,7 +219,7 @@
     },
     mounted() {
 
-      const options = {
+      let options = {
 
         // UI Theme Defaults
 
@@ -218,8 +232,8 @@
 
         showLabels: true,
         labelOptions: {
-          before: 'w/ Synthesis',
-          after: 'w/o Synthesis',
+          before: 'Hist. Synthesis',
+          after: 'Curved ACF Synthesis (Ours)',
           onHover: true
         },
 
@@ -237,20 +251,30 @@
       };
 
       console.log('Component has been mounted!');
-      // const element = document.getElementById("image-compare");
+      const synthesisComp = document.getElementById("image-compare_1");
+      const viewer1 = new ImageCompare(synthesisComp, options).mount();
+
+      options.labelOptions = {
+        before: 'Xu et al. 2024 <br> Infer.: 1.63ms  <br> Tracing: 0.31ms',
+        after: 'Ours <br> Infer.: 0.14ms  <br> Tracing: 1.29ms',
+        onHover: true
+      };
+      const allComp = document.getElementById("image-compare_2");
+      const viewer2 = new ImageCompare(allComp, options).mount();
+
       // const viewer = new ImageCompare(element, options).mount();
-      const viewers = document.querySelectorAll(".image-compare");
-      viewers.forEach((element) => {
-        let view = new ImageCompare(element, options).mount();
-      });
+      // const viewers = document.querySelectorAll(".image-compare");
+      // viewers.forEach((element) => {
+      //   let view = new ImageCompare(element, options).mount();
+      // });
 
 
     },
     computed: {
-      cols() {
-        const { lg, sm } = this.$vuetify.breakpoint
-        return lg ? 6 : sm ? 9 : 8
-      },
+      // cols() {
+      //   const { lg, sm } = this.$vuetify.breakpoint
+      //   return lg ? 6 : sm ? 9 : 8
+      // },
     },
   })
 
