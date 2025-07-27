@@ -21,10 +21,10 @@
             <v-container>
                 <v-row justify="center">
                     <!--  Left column -->
-                    <v-col class="py-4 text-center" :xl="4" :lg="4" :md="4" :sm="12" :xs="12">
+                    <v-col class="py-4 text-center" :xl="4" :lg="4" :md="12" :sm="12" :xs="12">
                         <!--  Self introduction -->
                         <v-row justify="center" style="margin-top: -3em">
-                            <v-avatar size="192">
+                            <v-avatar size="192" style="max-width:192px; max-height:192px;">
                                 <img src="images/avatar3.jpg">
                             </v-avatar>
                         </v-row>
@@ -45,10 +45,14 @@
                             zilinxu@ucsb.edu
                         </v-row>
                         <v-row justify="center">
-                            <a href="cv/cv.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[May 2025]
+                            <a href="cv/cv.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[July 2025]
                         </v-row>
-                        <v-row justify="center" align="center" class="mt-4" >
+                        <v-row justify="center" align="center" class="mt-4">
                             <v-col cols="1"></v-col>
+                            <v-col cols="auto">
+                                <v-img max-width="100px" src="images/mbzuai.png">
+                                </v-img>
+                            </v-col>
                             <v-col cols="auto">
                                 <v-img max-width="80px" src="images/ucsb.jpg">
                                 </v-img>
@@ -59,10 +63,14 @@
                             </v-col>
                             <v-col cols="1"></v-col>
                         </v-row>
-                        <v-row justify="center" align="center" class="mt-4" >
+                        <v-row justify="center" align="center" class="mt-4">
                             <v-col cols="1"></v-col>
                             <v-col cols="auto">
-                                <v-img max-width="80px"  src="images/meta.jpg">
+                                <v-img max-width="80px" src="images/Reality_Labs_logo.svg.png">
+                                </v-img>
+                            </v-col>
+                            <v-col cols="auto">
+                                <v-img max-width="80px" src="images/meta.jpg">
                                 </v-img>
                             </v-col>
                             <v-col cols="auto">
@@ -76,7 +84,7 @@
                     <!--  Left column end -->
 
                     <!--  Right column -->
-                    <v-col class="py-4" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
+                    <v-col class="py-4" :xl="8" :lg="8" :md="12" :sm="12" :xs="12">
                         <v-row justify="left">
                             <v-col class="pr-3" :xl="6" :lg="6" :md="6" :sm="12" :xs="12">
                                 <!--  About me -->
@@ -135,11 +143,45 @@
                         </v-row>
                         <!--  Research Interest end -->
 
-
+                        <!-- {
+                    title: 'Two GPU Zen 4 articles are coming!',
+                    abstract: ' Cascaded Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing in Large Scale Scenes\n and\n',
+                    authors:
+                        ' Fast Approximate Ray Tracing',
+                    publication: 'GPU Zen 4',
+                    teaser: 'images/GPUZEN4.png',
+                }, -->
                         <!--  Publications -->
                         <v-row justify="left">
                             <div class="text-h4 mt-4">Selected Publications</div>
                         </v-row>
+                        <v-row justify="left">
+                            <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
+                                <v-img width="100%" class="mt-2" src="images/GPUZEN4.png">
+                                </v-img>
+                            </v-col>
+                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+                                <b>Technical Articles</b>
+                                <br>
+                                <i>GPU Zen 4</i>
+                                <br>
+                                <span class="mr-2">
+                                    <a href="" target="_blank">Article (coming soon!)</a>
+                                </span>
+                                <br>
+
+                                Two articles are coming soon!
+                                <br>
+                                Quantized Neural Materials
+                                <br>
+                                Fast Approximate Ray Tracing
+                                <br>
+
+                                <v-divider></v-divider>
+                            </v-col>
+                        </v-row>
+
+
                         <v-row justify="left" v-for="(item, index) in publications">
                             <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
                                 <v-img width="100%" class="mt-2" :src="item.teaser">
@@ -286,8 +328,8 @@
                 { date: '08/2022', context: 'I got my first SIGGRAPH Asia paper!' }
             ],
             selfIntroduction:
-                'Hello! I\'m Zilin, I received my Bachelor and Master degree from Shandong University. \n' +
-                'Currently I\'m a second year PhD student at the University of California, Santa Barbara, supervised by Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
+                'Hello! I\'m Zilin. I received both my Bachelor\'s and Master\'s degrees from Shandong University. \n' +
+                'I began my Ph.D. studies at the University of California, Santa Barbara (2023). After two years of study in beautiful Southern California, I transferred to MBZUAI to continue working with my advisor, Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
             publications: [
                 {
                     title: 'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
@@ -303,7 +345,7 @@
                     publication: 'SIGGRAPH 2025',
                     teaser: 'images/teaser_sig25.png',
                     links: [
-                        { text: 'Paper (Coming soon)', link: '' },
+                        { text: 'Paper', link: 'https://dl.acm.org/doi/10.1145/3721238.3730626' },
                         { text: 'Project Page (WIP)', link: 'sig2025/index.html' }
                     ]
                 },
