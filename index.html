@@ -39,7 +39,8 @@
                             <h4>Pronounced as Tzu Lim Hsu</h4>
                         </v-row>
                         <v-row justify="center">
-                            University of California, Santa Barbara
+                            University of California, Santa Barbara <br>
+                            Mohamed bin Zayed University of Artificial Intelligence
                         </v-row>
                         <v-row justify="center">
                             zilinxu@ucsb.edu
@@ -143,43 +144,11 @@
                         </v-row>
                         <!--  Research Interest end -->
 
-                        <!-- {
-                    title: 'Two GPU Zen 4 articles are coming!',
-                    abstract: ' Cascaded Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing in Large Scale Scenes\n and\n',
-                    authors:
-                        ' Fast Approximate Ray Tracing',
-                    publication: 'GPU Zen 4',
-                    teaser: 'images/GPUZEN4.png',
-                }, -->
+
                         <!--  Publications -->
                         <v-row justify="left">
                             <div class="text-h4 mt-4">Selected Publications</div>
                         </v-row>
-                        <v-row justify="left">
-                            <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
-                                <v-img width="100%" class="mt-2" src="images/GPUZEN4.png">
-                                </v-img>
-                            </v-col>
-                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
-                                <b>Technical Articles</b>
-                                <br>
-                                <i>GPU Zen 4</i>
-                                <br>
-                                <span class="mr-2">
-                                    <a href="" target="_blank">Article (coming soon!)</a>
-                                </span>
-                                <br>
-                                Two articles are coming soon! They are:
-                                <br>
-                                Quantized Neural Materials, and
-                                <br>
-                                Fast Approximate Ray Tracing.
-                                <br>
-
-                                <v-divider></v-divider>
-                            </v-col>
-                        </v-row>
-
 
                         <v-row justify="left" v-for="(item, index) in publications">
                             <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
@@ -209,6 +178,34 @@
                             </v-col>
                         </v-row>
                         <!--  Publications end -->
+
+                        <!--  Technical Writting -->
+                        <v-row justify="left">
+                            <div class="text-h4 mt-4">Technical Writting</div>
+                        </v-row>
+                        <v-row justify="left">
+                            <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
+                                <v-img width="100%" class="mt-2" src="images/GPUZEN.jpg">
+                                </v-img>
+                            </v-col>
+                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+                                <b>Two Technical Articles on Real-time Rendering</b>
+                                <br>
+                                <i>GPU Zen 4</i>
+                                <!-- <br>
+                                <span class="mr-2">
+                                    <a href="" target="_blank">Article (coming soon!)</a>
+                                </span> -->
+                                <br>
+                                Coming soon!
+                                <br>
+
+                                <!-- <v-divider></v-divider> -->
+                            </v-col>
+                        </v-row>
+                        <!--  Technical Writting end -->
+
+
                         <!--  Projects -->
                         <v-row justify="left">
                             <div class="text-h4 mt-4">Selected Projects</div>
@@ -234,6 +231,8 @@
                             </v-col>
                         </v-row>
                         <!--  Projects end -->
+
+
                         <!--  Others -->
                         <v-row justify="left">
                             <div class="text-h4 mt-4">Other Publications</div>
@@ -328,7 +327,7 @@
             ],
             selfIntroduction:
                 'Hello! I\'m Zilin. I received both my Bachelor\'s and Master\'s degrees from Shandong University. \n' +
-                'I began my Ph.D. studies at the University of California, Santa Barbara (2023). After two years of study in beautiful Southern California, I transferred to MBZUAI to continue working with my advisor, Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
+                'I began my Ph.D. studies at the University of California, Santa Barbara (2023). After two years of study in beautiful Southern California, I\'m going to transfer to Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) in September to continue working with my advisor, Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
             publications: [
                 {
                     title: 'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
