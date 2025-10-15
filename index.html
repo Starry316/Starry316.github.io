@@ -40,7 +40,7 @@
                         </v-row>
                         <v-row justify="center">
                             University of California, Santa Barbara <br>
-                            Mohamed bin Zayed University of Artificial Intelligence
+                            Mohamed bin Zayed University <br> of Artificial Intelligence
                         </v-row>
                         <v-row justify="center">
                             Zilin.Xu@mbzuai.ac.ae
@@ -189,18 +189,25 @@
                                 </v-img>
                             </v-col>
                             <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
-                                <b>Two Technical Articles on Real-time Rendering</b>
+                                <!-- <b><i>GPU Zen 4</i></b>
+                                <br> -->
+                                <b>Towards Comprehensive Neural Materials</b>
                                 <br>
                                 <i>GPU Zen 4</i>
-                                <!-- <br>
+                                <br>
                                 <span class="mr-2">
                                     <a href="" target="_blank">Article (coming soon!)</a>
-                                </span> -->
+                                </span>    
                                 <br>
-                                Coming soon!
+                                
                                 <br>
-
-                                <!-- <v-divider></v-divider> -->
+                                <b>Cascaded Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing in Large Scale Scenes</b>
+                                <br>
+                                <i>GPU Zen 4</i>
+                                <br>
+                                <span class="mr-2">
+                                    <a href="" target="_blank">Article (coming soon!)</a>
+                                </span>    
                             </v-col>
                         </v-row>
                         <!--  Technical Writting end -->
@@ -316,6 +323,7 @@
             moreNews: false,
             researchInterest: "Realistic appearance is notoriously difficult to achieve in real-time rendering. My research focuses on leveraging neural techniques for efficient and accurate appearance representation, with a special emphasis on real-time performance. It also explores advanced features, such as dynamic appearance synthesis, that are challenging for traditional methods. ",
             news: [
+                { date: '10/2025', context: 'Part of the work I have done at Meta this summer was accepted to SIGGRAPH Asia 2025.' },
                 { date: '06/2025', context: 'Two articles will be part of the new GPU Zen!' },
                 { date: '05/2025', context: 'One paper accepted to SIGGRAPH 2025, and some video clips are featured in the Technical Papers Video Trailer! ' },
                 { date: '12/2024', context: 'I will be a research scientist intern at Meta next summer.' },
@@ -474,6 +482,15 @@
                 }
             ],
             projects: [
+                {
+                    title: 'Real-time Neural Material Rendering On Meta Quest 3',
+                    discription: 'We studied how to render neural materials efficiently on low-power VR devices. We have managed to achieve an impressive real-time performance (> 90 FPS) on Meta Quest 3 without compromising quality. \n',
+                    date: 'Intern project at Meta Reality Labs Research, Summer 2025',
+                    teaser: 'images/quest_neumat.jpg',
+                    links: [
+                        { text: 'Project Link (coming soon)', link: '' },
+                    ]
+                },
                 {
                     title: 'Advanced 3D Wood Material in MaterialX',
                     discription: 'Implemented a procedural 3D wood material as a general compound node graph in MaterialX (an open-source project).' +
