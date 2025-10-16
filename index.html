@@ -46,7 +46,7 @@
                             Zilin.Xu@mbzuai.ac.ae
                         </v-row>
                         <v-row justify="center">
-                            <a href="cv/cv_0924.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[Sept. 2025]
+                            <a href="cv/cv_1016.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[Oct. 2025]
                         </v-row>
                         <v-row justify="center" align="center" class="mt-4">
                             <v-col cols="1"></v-col>
@@ -179,8 +179,8 @@
                         </v-row>
                         <!--  Publications end -->
 
-                        <!--  Technical Writting -->
-                        <v-row justify="left">
+                         <!-- Technical Writting -->
+                        <!-- <v-row justify="left">
                             <div class="text-h4 mt-4">Technical Writting</div>
                         </v-row>
                         <v-row justify="left">
@@ -188,10 +188,10 @@
                                 <v-img width="100%" class="mt-2" src="images/GPUZEN.jpg">
                                 </v-img>
                             </v-col>
-                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
+                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8"> -->
                                 <!-- <b><i>GPU Zen 4</i></b>
                                 <br> -->
-                                <b>Towards Comprehensive Neural Materials</b>
+                                <!-- <b>Towards Comprehensive Neural Materials</b>
                                 <br>
                                 <i>GPU Zen 4</i>
                                 <br>
@@ -209,7 +209,7 @@
                                     <a href="" target="_blank">Article (coming soon!)</a>
                                 </span>    
                             </v-col>
-                        </v-row>
+                        </v-row> -->
                         <!--  Technical Writting end -->
 
 
@@ -347,13 +347,42 @@
                         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Lingqi Yan</a>,' +
                         ' <a href="https://www.linkedin.com/in/anton-kai-michels-95970340/" target="_blank">Anton Michels</a>',
                     publication: 'SIGGRAPH ASIA 2025 Poster',
-                    teaser: 'images/siga25_pos.jpg',
+                    teaser: 'images/siga25_pos2.jpg',
                     links: [
                         // { text: 'Paper', link: 'https://dl.acm.org/doi/10.1145/3721238.3730626' },
-                        { text: 'Paper coming soon', link: '' },
+                        { text: 'Paper (coming soon!)', link: '' },
                         // { text: 'Project Page (WIP)', link: 'sig2025/index.html' }
                     ]
                 },
+                {
+                    title: 'Towards Comprehensive Neural Materials',
+                    abstract: 'In this article, we detaily analyze how to implement our Comprehensive Neural Materials using native CUDA APIs.\n',
+                    authors:
+                        ' <b>Zilin Xu</b>,' +
+                        ' <a href="https://chenxiang0810.github.io/" target="_blank">Xiang Chen</a>,' +
+                        ' <a href="https://wangningbei.github.io/" target="_blank">Beibei Wang</a>,' +
+                        ' <a href="https://wanglusdu.github.io/" target="_blank">Lu Wang</a>,' +
+                        ' <a href="https://research.manchester.ac.uk/en/persons/zahra.montazeri" target="_blank">Zahra Montazeri</a>,' +
+                        ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
+                    publication: 'GPU Zen 4',
+                    teaser: 'images/GPUZEN.jpg',
+                    links: [
+                        { text: 'Article (coming soon!)', link: '' },
+                    ]
+                },          
+                // {
+                //     title: 'Cascaded Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing in Large Scale Scenes',
+                //     abstract: '\n',
+                //     authors: '<a href="https://zheng95z.github.io/" target="_blank">Zheng Zeng</a>,' +
+                //         ' <b>Zilin Xu</b>,' +
+                //         ' <a href="https://winmad.github.io/">Lifan Wu</a>,' +
+                //         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>',
+                //     publication: 'GPU Zen 4',
+                //     teaser: 'images/GPUZEN4.png',
+                //     links: [
+                //         { text: 'Article (coming soon!)', link: '' },
+                //     ]
+                // },
                 {
                     title: 'Towards Comprehensive Neural Materials: Dynamic Structure-Preserving Synthesis with Accurate Silhouette at Instant Inference Speed',
                     abstract: 'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette}, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette) through a dynamic two-step displacement tracing technique.\n',
@@ -484,7 +513,7 @@
             projects: [
                 {
                     title: 'Real-time Neural Material Rendering On Meta Quest 3',
-                    discription: 'We studied how to render neural materials efficiently on low-power VR devices. We have managed to achieve an impressive real-time performance (> 90 FPS) on Meta Quest 3 without compromising quality. \n',
+                    discription: 'We studied how to render complicated neural materials efficiently on low-power VR devices. We have managed to achieve an impressive real-time rendering performance (> 90 FPS) on Meta Quest 3 without compromising quality. \n',
                     date: 'Intern project at Meta Reality Labs Research, Summer 2025',
                     teaser: 'images/quest_neumat.jpg',
                     links: [
