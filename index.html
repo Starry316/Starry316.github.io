@@ -4,11 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Zilin Xu's Personal Page</title>
+<<<<<<< HEAD
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+=======
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+>>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="icon" href='images/icon.jpg'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
@@ -26,7 +33,12 @@
                         <!--  Self introduction -->
                         <v-row justify="center" style="margin-top: -3em">
                             <v-avatar size="192">
+<<<<<<< HEAD
+                                <img src="images/avatar3.jpg" alt="Zilin Xu portrait" width="192" height="192"
+                                    loading="lazy">
+=======
                                 <v-img src="images/avatar3.jpg" contain></v-img>
+>>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
                             </v-avatar>
                         </v-row>
                         <br><br>
@@ -44,10 +56,10 @@
                             Mohamed bin Zayed University <br> of Artificial Intelligence
                         </v-row>
                         <v-row justify="center">
-                            Zilin.Xu@mbzuai.ac.ae
+                            <a href="mailto:Zilin.Xu@mbzuai.ac.ae">Zilin.Xu@mbzuai.ac.ae</a>
                         </v-row>
                         <v-row justify="center">
-                            <a href="cv/cv_1016.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[Oct. 2025]
+                            <a href="cv/cv_0128.pdf" target="_blank">Curriculum Vitae</a> &nbsp;[Jan. 2026]
                         </v-row>
                         <v-row justify="center" align="center" class="mt-4">
                             <v-col cols="1"></v-col>
@@ -91,7 +103,7 @@
                             <v-col class="pr-3" :xl="6" :lg="6" :md="6" :sm="12" :xs="12">
                                 <!--  About me -->
                                 <v-row justify="left">
-                                    <div class="text-h4 mt-4">About Me</div>
+                                    <div class="text-h4 mt-4 section-title">About Me</div>
                                 </v-row>
                                 <v-row justify="left">
                                     <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
@@ -105,27 +117,29 @@
                             <v-col class="pl-6" :xl="6" :lg="6" :md="6" :sm="12" :xs="12">
                                 <!--  News -->
                                 <v-row justify="left">
-                                    <div class="text-h4 mt-4">News</div>
+                                    <div class="text-h4 mt-4 section-title">News</div>
                                 </v-row>
-                                <div v-for="(item, index) in news.slice(0, itemsToShow)" :key="index">
-                                    <!-- <v-row justify="left" v-if="item.img == null"> -->
+
+                                <v-list dense>
+                                    <v-list-item v-for="(item, index) in news.slice(0, itemsToShow)" :key="index"
+                                        class="py-1">
+                                        <v-list-item-content>
+                                            <div class="news-line">
+                                                <b>[{{ item.date }}]&nbsp;</b>
+                                                <span v-html="item.context"></span>
+                                            </div>
+                                        </v-list-item-content>
+                                    </v-list-item>
+                                </v-list>
+
+
+                                <!-- <div v-for="(item, index) in news.slice(0, itemsToShow)" :key="index">
                                     <v-row justify="left">
                                         <v-col class="col-12">
                                             <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
                                         </v-col>
                                     </v-row>
-                                    <!-- <v-row justify="left"  v-if="item.img != null">
-                                <v-col class="col-8">
-                                    <li><b>[{{item.date}}]&nbsp;</b> <span v-html="item.context"></span></li>
-                                </v-col>
-                                <v-col class="col-1"></v-col>
-                                <v-col class="col-3">
-                                    <v-img width="100%" class="mt-2"
-                                           :src="item.img">
-                                    </v-img>
-                                </v-col>
-                            </v-row> -->
-                                </div>
+                                </div> -->
                                 <v-btn plain small @click="toggleNews">
                                     {{ moreNews ? 'Less' : 'More' }}
                                 </v-btn>
@@ -136,7 +150,8 @@
 
                         <!--  Research Interest-->
                         <v-row justify="left">
-                            <div class="text-h4 mt-4">Research Interests</div>
+                            <!-- <div class="text-h4 mt-4">Research Interests</div> -->
+                            <div class="text-h4 mt-4 section-title">Research Interests</div>
                         </v-row>
                         <v-row justify="left">
                             <v-col xl="12" :lg="12" :md="12" :sm="12" :xs="12">
@@ -148,7 +163,7 @@
 
                         <!--  Publications -->
                         <v-row justify="left">
-                            <div class="text-h4 mt-4">Selected Publications</div>
+                            <div class="text-h4 section-title">Selected Publications</div>
                         </v-row>
 
                         <v-row justify="left" v-for="(item, index) in publications">
@@ -175,11 +190,13 @@
                                 <v-btn plain small @click="toggleText(index)" class="custom-btn">
                                     {{ showFullText[index] ? 'Less' : 'More' }}
                                 </v-btn>
-                                <v-divider></v-divider>
+                                <!-- <v-row class="my-1"></v-row> -->
                             </v-col>
                         </v-row>
                         <!--  Publications end -->
 
+<<<<<<< HEAD
+=======
                         <!-- Technical Writting -->
                         <!-- <v-row justify="left">
                             <div class="text-h4 mt-4">Technical Writting</div>
@@ -214,13 +231,14 @@
                         <!--  Technical Writting end -->
 
 
+>>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
                         <!--  Projects -->
                         <v-row justify="left">
-                            <div class="text-h4 mt-4">Selected Projects</div>
+                            <div class="text-h4 mt-4  section-title">Selected Projects</div>
                         </v-row>
                         <v-row justify="left" v-for="item in projects">
                             <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
-                                <v-img width="100%" class="mt-2" :src="item.teaser">
+                                <v-img width="100%" :src="item.teaser">
                                 </v-img>
                             </v-col>
                             <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8">
@@ -235,7 +253,7 @@
                                 <p>
                                     {{item.discription}}
                                 </p>
-                                <v-divider></v-divider>
+                                <!-- <v-row class="my-10"></v-row> -->
                             </v-col>
                         </v-row>
                         <!--  Projects end -->
@@ -243,7 +261,7 @@
 
                         <!--  Others -->
                         <v-row justify="left">
-                            <div class="text-h4 mt-4">Other Publications</div>
+                            <div class="text-h4  section-title">Other Publications</div>
                         </v-row>
                         <v-row justify="left" v-for="item in others">
                             <v-col xl="12" lg="12" md="12" sm="12" xs="12">
@@ -258,10 +276,10 @@
                         <!-- <v-divider></v-divider> -->
                         <!--  Others end -->
                         <v-row justify="left">
-                            <div class="text-h4 mt-4">Misc.</div>
+                            <div class="text-h4 section-title">Misc.</div>
                         </v-row>
                         <v-row justify="left">
-                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
+                            <v-col class="text-left" :xl="8" :lg="8" :md="8" :sm="12" :xs="12">
                                 <p>
                                     I'm a passionate hardcore gamer who loves playing almost every type of video game
                                     (except horror games like <i>Phasmophobia</i>). I started playing video games at the
@@ -310,20 +328,47 @@
         </v-app>
     </div>
 </body>
+<<<<<<< HEAD
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js"></script>
+=======
 
+>>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
 
 <script>
+    // const THEME_KEY = "prefers_dark";
     var app = new Vue({
         el: '#app',
-        vuetify: new Vuetify(),
+        vuetify: new Vuetify({
+            theme: {
+                dark: false,
+                themes: {
+                    light: {
+                        primary: "#3f51b5",
+                        anchor: "#3f51b5",
+                    },
+                    dark: {
+                        primary: "#90caf9",
+                        anchor: "#90caf9",
+                    },
+                },
+                options: { customProperties: true },
+            },
+        }),
         data: {
+            darkMode: false,
             value: 1,
             itemsToShow: 3,
             showFullText: [],
             moreNews: false,
             researchInterest: "Realistic appearance is notoriously difficult to achieve in real-time rendering. My research focuses on leveraging neural techniques for efficient and accurate appearance representation, with a special emphasis on real-time performance. It also explores advanced features, such as dynamic appearance synthesis, that are challenging for traditional methods. ",
             news: [
+<<<<<<< HEAD
+                { date: '01/2026', context: 'One paper was accepted to Eurographics 2026.' },
+                { date: '12/2025', context: 'I will be joining Meta as a intern again next summer.' },
+=======
                 // { date: '12/2025', context: 'Our work on real-time neural materials rendering on Quest3 was accepted to Eurographics 2026!' },
+>>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
                 { date: '10/2025', context: 'Part of the work I have done at Meta this summer was accepted to SIGGRAPH Asia 2025.' },
                 { date: '06/2025', context: 'Two articles will be part of the new GPU Zen!' },
                 { date: '05/2025', context: 'One paper accepted to SIGGRAPH 2025, and some video clips are featured in the Technical Papers Video Trailer! ' },
@@ -354,6 +399,24 @@
                 //         { text: 'Paper (coming soon!)', link: '' },
                 //     ]
                 // },
+                {
+                    title: 'Real-Time Neural Materials on Mobile VR',
+                    abstract: 'Virtual Reality (VR) applications aim to create an immersive virtual world, which demands a high level of visual realism. The analytical material models commonly used in VR often fall short of reproducing complex real-world appearances. Recently, neural materials have emerged as a promising alternative, offering a compact yet effective representation of real-world materials.Deploying neural materials on low-power mobile VR devices poses significant challenges due to the computational complexity of neural networks and the high display resolution and frame rate requirements of VR devices (commonly 72+ frames per second). We address these challenges by leveraging texture-space shading with spatiotemporal computation amortization, driven by a compact, coarse-to-fine neural material model of extremely low capacity. Thanks to our distillation training scheme, our compact neural materials achieve visual quality comparable to NeuMIP at a much lower cost. Our method reaches over 90 FPS on a mobile VR device (Meta Quest 3) even under multiple light sources.\n',
+                    authors:
+                        ' <b>Zilin Xu</b>,' +
+                        ' <a href="https://linktr.ee/mangosister" target="_blank">Yang Zhou</a>,' +
+                        ' <a href="https://yehonathanlitman.github.io/" target="_blank">Yehonathan Litman</a>,' +
+                        ' <a href="https://mattchiangvfx.com/" target="_blank">Matt Jen-Yuan Chiang</a>,' +
+                        ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Lingqi Yan</a>,' +
+                        ' <a href="https://www.linkedin.com/in/anton-kai-michels-95970340/" target="_blank">Anton Michels</a>',
+                    publication: 'Computer Graphics Forum (Proceedings of Eurographics 2026)',
+                    teaser: 'images/eg26.jpg',
+                    links: [
+                        // { text: 'Paper', link: 'https://dl.acm.org/doi/10.1145/3721238.3730626' },
+                        { text: 'Paper (coming soon)', link: '_' },
+                        { text: 'Project Page (coming soon)', link: '-' }
+                    ]
+                },
                 {
                     title: 'Improving Angular Parameterization for Compact Neural Materials',
                     abstract: 'In this work, we investigate the impact of different MLP input angular parameterizations on the quality of very compact neural materials. This design problem has been largely neglected in previous works, but we show that a suitable angular parameterization significantly improves visual quality, especially in the case of small MLP capacity. We conducted extensive experiments and made practical recommendations based on the results.\n',
@@ -591,6 +654,16 @@
         created() {
             // Initialize the showFullText array with false for each paragraph
             this.showFullText = this.publications.map(() => false);
+            const saved = localStorage.getItem(THEME_KEY);
+            if (saved !== null) {
+                this.darkMode = saved === "1";
+            } else {
+                this.darkMode = window.matchMedia &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches;
+            }
+            this.$vuetify.theme.dark = this.darkMode;
+
+
         },
         methods: {
             toggleText(index) {
@@ -599,6 +672,11 @@
             toggleNews() {
                 this.itemsToShow = this.moreNews ? 3 : this.news.length;
                 this.moreNews = !this.moreNews;
+            },
+            toggleDark() {
+                this.darkMode = !this.darkMode;
+                this.$vuetify.theme.dark = this.darkMode;
+                localStorage.setItem(THEME_KEY, this.darkMode ? "1" : "0");
             },
         },
         computed: {
@@ -626,7 +704,7 @@
     .header-medium {
         width: 100%;
         height: 100%;
-        min-height: 10%;
+        min-height: 5%;
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url(images/header.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -653,6 +731,84 @@
     .custom-btn {
         /* padding: 10px 20px;  */
         margin-top: -10px;
+    }
+
+    .news-line {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        word-break: break-word;
+    }
+
+
+    .section-title {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 24px;
+        letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .pub-item {
+        padding: 20px;
+        border-radius: 12px;
+        transition: background 0.2s ease;
+    }
+
+    .pub-item:hover {
+        background: #fafafa;
+    }
+
+    :root {
+        --accent: #3f51b5;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .v-application {
+        font-family:
+            "Inter",
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            "PingFang SC",
+            "Hiragino Sans GB",
+            "Microsoft YaHei",
+            sans-serif;
+    }
+
+
+    .section-title,
+    h1,
+    h2,
+    h3,
+    .name-title {
+        font-family:
+            "IBM Plex Sans",
+            "Inter",
+            "PingFang SC",
+            sans-serif;
+        font-weight: 500;
+    }
+
+    .v-application p {
+        line-height: 1.65;
+    }
+
+    .section-title {
+        font-weight: 500;
+        letter-spacing: 0.02em;
     }
 </style>
 
