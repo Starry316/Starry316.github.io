@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Zilin Xu's Personal Page</title>
-<<<<<<< HEAD
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-=======
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
->>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
@@ -33,12 +31,7 @@
                         <!--  Self introduction -->
                         <v-row justify="center" style="margin-top: -3em">
                             <v-avatar size="192">
-<<<<<<< HEAD
-                                <img src="images/avatar3.jpg" alt="Zilin Xu portrait" width="192" height="192"
-                                    loading="lazy">
-=======
                                 <v-img src="images/avatar3.jpg" contain></v-img>
->>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
                             </v-avatar>
                         </v-row>
                         <br><br>
@@ -195,43 +188,6 @@
                         </v-row>
                         <!--  Publications end -->
 
-<<<<<<< HEAD
-=======
-                        <!-- Technical Writting -->
-                        <!-- <v-row justify="left">
-                            <div class="text-h4 mt-4">Technical Writting</div>
-                        </v-row>
-                        <v-row justify="left">
-                            <v-col xl="4" :lg="4" :md="4" :sm="4" :xs="4">
-                                <v-img width="100%" class="mt-2" src="images/GPUZEN.jpg">
-                                </v-img>
-                            </v-col>
-                            <v-col class="py-4 text-left" :xl="8" :lg="8" :md="8" :sm="8" :xs="8"> -->
-                        <!-- <b><i>GPU Zen 4</i></b>
-                                <br> -->
-                        <!-- <b>Towards Comprehensive Neural Materials</b>
-                                <br>
-                                <i>GPU Zen 4</i>
-                                <br>
-                                <span class="mr-2">
-                                    <a href="" target="_blank">Article (coming soon!)</a>
-                                </span>    
-                                <br>
-                                
-                                <br>
-                                <b>Cascaded Ray-aligned Occupancy Map Array for Fast Approximate Ray Tracing in Large Scale Scenes</b>
-                                <br>
-                                <i>GPU Zen 4</i>
-                                <br>
-                                <span class="mr-2">
-                                    <a href="" target="_blank">Article (coming soon!)</a>
-                                </span>    
-                            </v-col>
-                        </v-row> -->
-                        <!--  Technical Writting end -->
-
-
->>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
                         <!--  Projects -->
                         <v-row justify="left">
                             <div class="text-h4 mt-4  section-title">Selected Projects</div>
@@ -328,12 +284,6 @@
         </v-app>
     </div>
 </body>
-<<<<<<< HEAD
-<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.js"></script>
-=======
-
->>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
 
 <script>
     // const THEME_KEY = "prefers_dark";
@@ -363,12 +313,8 @@
             moreNews: false,
             researchInterest: "Realistic appearance is notoriously difficult to achieve in real-time rendering. My research focuses on leveraging neural techniques for efficient and accurate appearance representation, with a special emphasis on real-time performance. It also explores advanced features, such as dynamic appearance synthesis, that are challenging for traditional methods. ",
             news: [
-<<<<<<< HEAD
                 { date: '01/2026', context: 'One paper was accepted to Eurographics 2026.' },
                 { date: '12/2025', context: 'I will be joining Meta as a intern again next summer.' },
-=======
-                // { date: '12/2025', context: 'Our work on real-time neural materials rendering on Quest3 was accepted to Eurographics 2026!' },
->>>>>>> 3d14cbe12d8ef868785842dc65e6053b9e9d6d7b
                 { date: '10/2025', context: 'Part of the work I have done at Meta this summer was accepted to SIGGRAPH Asia 2025.' },
                 { date: '06/2025', context: 'Two articles will be part of the new GPU Zen!' },
                 { date: '05/2025', context: 'One paper accepted to SIGGRAPH 2025, and some video clips are featured in the Technical Papers Video Trailer! ' },
@@ -383,22 +329,6 @@
                 'Hello! I\'m Zilin. I received both my Bachelor\'s and Master\'s degrees from Shandong University. \n' +
                 'I began my Ph.D. studies at the University of California, Santa Barbara (2023). After two years of study in beautiful Southern California, I\'m going to transfer to Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) in September to continue working with my advisor, Prof. <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>.\n',
             publications: [
-                // {
-                //     title: 'Real-Time Neural Materials on Mobile VR',
-                //     abstract: 'Virtual Reality (VR) applications aim to create an immersive virtual world, which demands a high level of visual realism. The analytical material models commonly used in VR often fall short of reproducing complex real-world appearances. Recently, neural materials have emerged as a promising alternative, offering a compact yet effective representation of real-world materials.Deploying neural materials on low-power mobile VR devices poses significant challenges due to the computational complexity of neural networks and the high display resolution and frame rate requirements of VR devices (commonly 72+ frames per second). We address these challenges by leveraging texture-space shading with spatiotemporal computation amortization, driven by a compact, coarse-to-fine neural material model of extremely low capacity. Thanks to our distillation training scheme, our compact neural materials achieve visual quality comparable to NeuMIP at a much lower cost. Our method reaches over 90 FPS on a mobile VR device (Meta Quest 3) even under multiple light sources.',
-                //     authors:
-                //         ' <b>Zilin Xu</b>,' +
-                //         ' <a href="https://linktr.ee/mangosister" target="_blank">Yang Zhou</a>,' +
-                //         ' <a href="https://yehonathanlitman.github.io/" target="_blank">Yehonathan Litman</a>,' +
-                //         ' <a href="https://sites.cs.ucsb.edu/~lingqi/" target="_blank">Ling-Qi Yan</a>,' +
-                //         ' <a href="https://mattchiangvfx.com/" target="_blank">Matt Jen-Yuan Chiang</a>,' +
-                //         ' <a href="https://www.linkedin.com/in/anton-kai-michels-95970340/" target="_blank">Anton Michels</a>',
-                //     publication: 'Eurographics 2026',
-                //     teaser: 'images/teaser_eg26.png',
-                //     links: [
-                //         { text: 'Paper (coming soon!)', link: '' },
-                //     ]
-                // },
                 {
                     title: 'Real-Time Neural Materials on Mobile VR',
                     abstract: 'Virtual Reality (VR) applications aim to create an immersive virtual world, which demands a high level of visual realism. The analytical material models commonly used in VR often fall short of reproducing complex real-world appearances. Recently, neural materials have emerged as a promising alternative, offering a compact yet effective representation of real-world materials.Deploying neural materials on low-power mobile VR devices poses significant challenges due to the computational complexity of neural networks and the high display resolution and frame rate requirements of VR devices (commonly 72+ frames per second). We address these challenges by leveraging texture-space shading with spatiotemporal computation amortization, driven by a compact, coarse-to-fine neural material model of extremely low capacity. Thanks to our distillation training scheme, our compact neural materials achieve visual quality comparable to NeuMIP at a much lower cost. Our method reaches over 90 FPS on a mobile VR device (Meta Quest 3) even under multiple light sources.\n',
