@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Real-Time Neural Materials on Mobile VR</title>
+
+  <!-- Vue 2 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js"></script>
+
+  <!-- Dics (multi-image comparison) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dics@2.6.1/src/dics.css">
+  <script src="https://cdn.jsdelivr.net/npm/dics@2.6.1/src/dics.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.6.15/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes, minimal-ui">
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-row justify="center">
+        <v-col class="py-4 text-center" :xl="6" :lg="6" :md="8" :sm="12" :xs="12">
+
+          <!-- Title and teaser -->
+          <v-row justify="center" class="mt-12">
+            <v-sheet tile>
+              <div class="text-h3">{{title}}</div>
+              <div class="text-h4 mt-6">{{publisher}}</div>
+            </v-sheet>
+
+            <v-col :cols="12" class="mt-2">
+              <span v-for="author in authors" :key="author.name" class="mr-4">
+                <span v-if="author.link != null">
+                  <a :href="author.link" target="_blank" rel="noopener">{{author.name}}</a>
+                  <sup>{{author.sup}}</sup>
+                </span>
+                <span v-else>
+                  {{author.name}}
+                  <sup>{{author.sup}}</sup>
+                </span>
+              </span>
+            </v-col>
+
+            <v-col :cols="12" class="mt-2">
+              <span v-for="item in institutions" :key="item.sup" class="mr-4">
+                <sup>{{item.sup}}</sup>{{item.name}}
+              </span>
+            </v-col>
+
+            <v-img max-width="100%" class="mt-2" :src="teaserPath"></v-img>
+          </v-row>
+
+          <!-- Abstract -->
+          <v-row justify="left" class="mt-8">
+            <v-col :cols="12">
+              <div class="text-h4 text-left">Abstract</div>
+            </v-col>
+          </v-row>
+          <v-row justify="left" class="mt-4">
+            <v-col :cols="12">
+              <div class="text-body-1 text-left">
+                {{abstract}}
+              </div>
+            </v-col>
+          </v-row>
+
+          <!-- Download -->
+          <v-row justify="left" class="mt-8">
+            <v-col class="col-12 text-left">
+              <div class="text-h4"> Download</div>
+            </v-col>
+          </v-row>
+          <v-row justify="left" class="mt-4">
+            <div class="text-center pl-2">
+              <v-btn color="light-blue darken-3" dark :href="paperPath" target="_blank" :disabled="!paperPath">
+                PAPER <v-icon class="ml-2 white--text">mdi-file-pdf</v-icon>
+              </v-btn>
+
+              <v-btn color="light-blue darken-3" dark :href="supplementalPath" target="_blank"
+                :disabled="!supplementalPath">
+                SUPPLEMENTARY <v-icon class="ml-2 white--text">mdi-file-pdf</v-icon>
+              </v-btn>
+
+              <v-btn color="light-blue darken-3" dark :href="codePath" target="_blank" :disabled="!codePath">
+                <span v-if="codePath">CODE</span>
+                <span v-else>CODE (Coming Soon)</span>
+                <v-icon class="ml-2 white--text">mdi-github-box</v-icon>
+              </v-btn>
+            </div>
+          </v-row>
+
+          <!-- Video -->
+          <v-row justify="left" class="mt-8">
+            <v-col class="col-12 text-left">
+              <div class="text-h4"> Video</div>
+            </v-col>
+          </v-row>
+          <v-row justify="left" class="mt-4">
+            <video controls preload="none" align="center" width="100%" style="display:block; width:100%;">
+              <source :src="videoPath" type="video/mp4">
+            </video>
+          </v-row>
+
+          <!-- Demo -->
+          <v-row justify="left" class="mt-8">
+            <v-col class="col-12 text-left">
+              <div class="text-h4"> Demo</div>
+            </v-col>
+          </v-row>
+          <v-row justify="left" class="mt-4">
+            <video controls preload="none" align="center" width="100%" style="display:block; width:100%;">
+              <source :src="demoPath" type="video/mp4">
+            </video>
+          </v-row>
+
+          <!-- More Results -->
+          <v-row justify="left" class="mt-8">
+            <v-col class="col-12 text-left">
+              <div class="text-h4"> More Results</div>
+            </v-col>
+          </v-row>
+
+          <!-- Compare #1 controls -->
+          <v-row class="mt-2">
+            <v-col :cols="12">
+              <v-card outlined class="cmp-panel">
+                <v-card-text class="py-3">
+                  <div class="text-subtitle-2 text-left mb-2">Fabric 12: pick two to compare (vertical)</div>
+                  <v-row dense>
+                    <v-col cols="12" sm="6">
+                      <v-select
+                        dense outlined hide-details
+                        label="Left image"
+                        :items="compare1.items"
+                        item-text="label"
+                        item-value="key"
+                        v-model="compare1.left"
+                        @change="onCompareChange(1)"
+                      ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <v-select
+                        dense outlined hide-details
+                        label="Right image"
+                        :items="compare1.items"
+                        item-text="label"
+                        item-value="key"
+                        v-model="compare1.right"
+                        @change="onCompareChange(1)"
+                      ></v-select>
+                    </v-col>
+                  </v-row>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+
+          <!-- Compare #1 (rendered by Dics) -->
+          <v-row class="mt-2">
+            <v-col :cols="12">
+              <div class="text-center b-dics cmp-box" id="image-compare_1">
+                <img :src="compare1.map[compare1.left].src" :alt="compare1.map[compare1.left].label" />
+                <img :src="compare1.map[compare1.right].src" :alt="compare1.map[compare1.right].label" />
+              </div>
+            </v-col>
+          </v-row>
+
+          <!-- Compare #2 controls -->
+          <v-row class="mt-4">
+            <v-col :cols="12">
+              <v-card outlined class="cmp-panel">
+                <v-card-text class="py-3">
+                  <div class="text-subtitle-2 text-left mb-2">Fabric 07: pick two to compare (vertical)</div>
+                  <v-row dense>
+                    <v-col cols="12" sm="6">
+                      <v-select
+                        dense outlined hide-details
+                        label="Left image"
+                        :items="compare2.items"
+                        item-text="label"
+                        item-value="key"
+                        v-model="compare2.left"
+                        @change="onCompareChange(2)"
+                      ></v-select>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <v-select
+                        dense outlined hide-details
+                        label="Right image"
+                        :items="compare2.items"
+                        item-text="label"
+                        item-value="key"
+                        v-model="compare2.right"
+                        @change="onCompareChange(2)"
+                      ></v-select>
+                    </v-col>
+                  </v-row>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+
+          <!-- Compare #2 (rendered by Dics) -->
+          <v-row class="mt-2 mb-4">
+            <v-col :cols="12">
+              <div class="text-center b-dics cmp-box" id="image-compare_2">
+                <img :src="compare2.map[compare2.left].src" :alt="compare2.map[compare2.left].label" />
+                <img :src="compare2.map[compare2.right].src" :alt="compare2.map[compare2.right].label" />
+              </div>
+            </v-col>
+          </v-row>
+
+          <!-- Bibtex -->
+          <v-row justify="left" class="mt-8">
+            <v-col class="col-12 text-left">
+              <v-sheet tile>
+                <div class="text-h4 text-left"> Bibtex</div>
+              </v-sheet>
+            </v-col>
+          </v-row>
+          <div class="bibtex-block text-left">
+            <pre><code>{{bibtex}}</code></pre>
+          </div>
+
+        </v-col>
+      </v-row>
+
+      <!-- footer -->
+      <v-footer color="indigo" padless>
+        <v-row justify="center" no-gutters>
+          <v-btn color="white" text large plain>
+            {{title}}
+          </v-btn>
+        </v-row>
+      </v-footer>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.6.15/dist/vuetify.min.js"></script>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: {
+        title: 'Real-Time Neural Materials on Mobile VR',
+        publisher: 'Eurographics 2026',
+        teaserPath: 'img/representative.png',
+
+        // Links
+        paperPath: '',
+        supplementalPath: '',
+        codePath: '',
+        videoPath: '',
+        demoPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/demo_sig25_cnm.mp4',
+
+        abstract: 'Virtual Reality (VR) applications aim to create an immersive virtual world, which demands a high level of visual realism. The analytical material models commonly used in VR often fall short of reproducing complex real-world appearances. Recently, neural materials have emerged as a promising alternative, offering a compact yet effective representation of real-world materials.Deploying neural materials on low-power mobile VR devices poses significant challenges due to the computational complexity of neural networks and the high display resolution and frame rate requirements of VR devices (commonly 72+ frames per second). We address these challenges by leveraging texture-space shading with spatiotemporal computation amortization, driven by a compact, coarse-to-fine neural material model of extremely low capacity. Thanks to our distillation training scheme, our compact neural materials achieve visual quality comparable to NeuMIP at a much lower cost. Our method reaches over 90 FPS on a mobile VR device (Meta Quest 3) even under multiple light sources.\n',
+
+        authors: [
+          { name: 'Zilin Xu', sup: '1', link: 'https://starry316.github.io/' },
+          { name: 'Yang Zhou', sup: '2', link: 'https://linktr.ee/mangosister' },
+          { name: 'Yehonathan Litman', sup: '2,3', link: 'https://yehonathanlitman.github.io/' },
+          { name: 'Matt Jen-Yuan Chiang', sup: '2', link: 'https://mattchiangvfx.com/' },
+          { name: 'Lingqi Yan', sup: '1', link: 'https://sites.cs.ucsb.edu/~lingqi/' },
+          { name: 'Anton Michels', sup: '2', link: 'https://www.linkedin.com/in/anton-kai-michels-95970340/' }
+        ],
+        institutions: [
+          { sup: '1', name: 'Mohamed bin Zayed University of Artificial Intelligence' },
+          { sup: '2', name: 'Meta Reality Labs Research' },
+          { sup: '3', name: 'Carnegie Mellon University' }
+        ],
+
+        bibtex: 'TBD',
+
+        // Compare set #1
+        compare1: {
+          left: 'neumip',
+          right: 'ours',
+          items: [
+            { key: 'neumip', label: 'NeuMIP' },
+            { key: 'ours', label: 'Ours' },
+            { key: 'ref', label: 'Reference / GT' }
+          ],
+          map: {
+            neumip: { label: 'NeuMIP', src: 'img/fabric12_neumip.png' },
+            ours: { label: 'Ours', src: 'img/fabric12_ours.png' },
+            ref: { label: 'Reference / GT', src: 'img/fabric12_ref.png' }
+          }
+        },
+
+        // Compare set #2
+        compare2: {
+          left: 'neumip',
+          right: 'ours',
+          items: [
+            { key: 'neumip', label: 'NeuMIP' },
+            { key: 'ours', label: 'Ours' },
+            { key: 'ref', label: 'Reference / GT' }
+          ],
+          map: {
+            neumip: { label: 'NeuMIP', src: 'img/fabric07_neumip.png' },
+            ours: { label: 'Ours', src: 'img/fabric07_ours.png' },
+            ref: { label: 'Reference / GT', src: 'img/fabric07_ref.png' }
+          }
+        },
+
+        _reinitTimer: null
+      },
+
+      methods: {
+        // Ensure left/right are different; if conflict, auto-pick a different one.
+        _resolvePair(which) {
+          const c = which === 1 ? this.compare1 : this.compare2;
+          if (c.left !== c.right) return;
+
+          // pick the first item that's not equal to left
+          const fallback = c.items.map(it => it.key).find(k => k !== c.left);
+          c.right = fallback || c.right;
+        },
+
+        // Remove Dics-generated DOM by rebuilding the container with only <img> tags.
+        _rebuildContainer(containerId, imgList) {
+          const el = document.getElementById(containerId);
+          if (!el) return;
+
+          el.innerHTML = '';
+          imgList.forEach(it => {
+            const img = document.createElement('img');
+            img.src = it.src;
+            img.alt = it.alt || '';
+            el.appendChild(img);
+          });
+        },
+
+        initCompare(which) {
+          clearTimeout(this._reinitTimer);
+          this._reinitTimer = setTimeout(() => {
+            const c = which === 1 ? this.compare1 : this.compare2;
+            const containerId = which === 1 ? 'image-compare_1' : 'image-compare_2';
+
+            const imgs = [
+              { src: c.map[c.left].src, alt: c.map[c.left].label },
+              { src: c.map[c.right].src, alt: c.map[c.right].label }
+            ];
+
+            this._rebuildContainer(containerId, imgs);
+
+            // Fixed vertical compare
+            new Dics({
+              container: document.getElementById(containerId),
+              linesOrientation: 'vertical',
+              textPosition: 'left',
+              hideTexts: false
+            });
+          }, 50);
+        },
+
+        onCompareChange(which) {
+          this._resolvePair(which);
+          this.initCompare(which);
+        }
+      },
+
+      mounted() {
+        // Init both compare blocks on load
+        this._resolvePair(1);
+        this._resolvePair(2);
+        this.initCompare(1);
+        this.initCompare(2);
+      }
+    });
+  </script>
+
+  <style>
+    .bibtex-block {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+      padding: 1rem;
+      border-radius: 12px;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .cmp-panel {
+      border-radius: 14px;
+    }
+
+    .cmp-box {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .b-dics img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</body>
+
+</html>
