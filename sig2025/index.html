@@ -84,7 +84,7 @@
                 <v-icon class="ml-2 white--text">mdi-file-pdf</v-icon>
               </v-btn>
               <!-- <v-btn color="light-blue darken-3" dark href="https://github.com/Starry316/InstantNeuralMaterial/tree/main/Source/RenderPasses/NeuralMatRendering" target="_blank"> CODE (Coming Soon) -->
-              <v-btn color="light-blue darken-3" dark href="" target="_blank"> CODE (Coming Soon)
+              <v-btn color="light-blue darken-3" dark :href="codePath" target="_blank"> CODE
                 <v-icon class="ml-2 white--text">mdi-github-box</v-icon>
               </v-btn>
             </div>
@@ -179,6 +179,7 @@
       paperPath: 'https://dl.acm.org/doi/10.1145/3721238.3730626',
       supplementalPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/supp_sig25_cnm.pdf',
       videoPath: 'https://sites.cs.ucsb.edu/~lingqi/publications/video_sig25_cnm.mp4',
+      codePath: 'https://github.com/Starry316/InstantNeuralMaterial',
       abstract: 'Photorealistic rendering aims to accurately replicate real-world appearances. Traditional methods, like microfacet-based models, often struggle with complex visuals. Consequently, neural material techniques have emerged, typically offering improved performance over traditional approaches. However, these neural material approaches only attempt to address one or a few essential aspects of the complete appearance while neglecting others (quality, parallax & silhouette, synthesis, performance). Although these aspects may seem separate, they are inherently intertwined as part of the complete appearance which cannot be isolated. In this paper, we challenge the comprehensive neural material representation by thoroughly considering the essential aspects of the complete appearance. We introduce an int8-quantized neural network that keeps high fidelity (quality) while achieving an order of magnitude speedup (performance) compared to previous methods. We also present a controllable structure-preserving synthesis strategy (synthesis), along with accurate displacement effects (parallax & silhouette) through a dynamic two-step displacement tracing technique.',
       authors: [
         { name: 'Zilin Xu', sup: '1', link: 'https://starry316.github.io/' },
